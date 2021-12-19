@@ -52,9 +52,9 @@ Full command line tool API is specified in [CLI](./CLI.md).
 
 Every front end project involves a lot of boilerplate. Printer reduces the need to spend time writing boilerplate to almost zero. The principle approach of Printer is to automate anything trivial in Next.js development.
 
-### Components
-
 **Review the actual generated code in the [sample project](./examples/print-sample).**
+
+### Components
 
 *Input*
 
