@@ -1,0 +1,28 @@
+{
+  "name": "@chriscates/printer",
+  "description": "🖨️ Printer: A Prescriptive, Precision based approach to Next.js, Redux, Prisma Development.",
+  "version": "1.0.0",
+  "private": false,
+  "preferGlobal": true,
+  "repository": "https://github.com/ChrisCates/Printer.git",
+  "author": "Chris Cates <hello@chriscates.ca>",
+  "license": "AGPLv3",
+  "scripts": {
+    "start": "npm run build && node dist/src/printer.js",
+    "build": "tsc && node prepend.js"
+  },
+  "bin": {
+    "printer": "./dist/src/printer.js"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.0",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "commander": "^8.3.0",
+    "fs-jetpack": "^4.3.0",
+    "leveldown": "^6.1.0",
+    "levelup": "^5.1.1"
+  }
+}

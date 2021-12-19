@@ -1,0 +1,3 @@
+model test {
+    id String @id @default(dbgenerated()) @map("_id") @db.ObjectId
+}

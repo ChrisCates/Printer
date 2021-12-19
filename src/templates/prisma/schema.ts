@@ -1,0 +1,9 @@
+export const SchemaTemplate = `generator client {
+    provider = "prisma-client-js"
+    previewFeatures = ["mongoDb"]
+}
+
+datasource db {
+    provider = "mongodb"
+    url = env("DATABASE_URL")
+}`;
