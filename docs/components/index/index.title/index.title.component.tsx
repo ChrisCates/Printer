@@ -35,12 +35,12 @@ export function IndexTitleComponent({ }: IndexTitleI) {
                     <div className="window-inner">
                         <textarea value={`λ printer new project
 👷  Generating new Printer project
-    ✅  Created _app.tsx
-    ✅  Created _document.tsx
     ✅  Created .babelrc
     ✅  Created .gitignore
     ✅  Created .gitkeep
     ✅  Created public/.gitkeep
+    ✅  Created pages/_app.tsx
+    ✅  Created pages/_document.tsx
     ✅  Created pages/index.tsx
     ✅  Created package.json
     ✅  Created redux/redux.wrapper.tsx

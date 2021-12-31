@@ -64,10 +64,6 @@ function generateNewProject(path) {
             reducerPath = (0, path_1.join)(process.cwd(), path, 'redux', 'redux.reducer.tsx');
             reducersPath = (0, path_1.join)(process.cwd(), path, 'redux', 'reducers.json');
             tsconfigPath = (0, path_1.join)(process.cwd(), path, 'tsconfig.json');
-            (0, fs_jetpack_1.write)(appPath, _app_1.AppTemplate);
-            console.log("    \u2705  Created _app.tsx".green);
-            (0, fs_jetpack_1.write)(documentPath, _document_1.DocumentTemplate);
-            console.log("    \u2705  Created _document.tsx".green);
             (0, fs_jetpack_1.write)(babelPath, babel_1.BabelTemplate);
             console.log("    \u2705  Created .babelrc".green);
             (0, fs_jetpack_1.write)(gitignorePath, gitignore_1.GitIgnoreTemplate);
@@ -76,6 +72,10 @@ function generateNewProject(path) {
             console.log("    \u2705  Created .gitkeep".green);
             (0, fs_jetpack_1.write)(gitkeepPublicPath, "");
             console.log("    \u2705  Created public/.gitkeep".green);
+            (0, fs_jetpack_1.write)(appPath, _app_1.AppTemplate);
+            console.log("    \u2705  Created pages/_app.tsx".green);
+            (0, fs_jetpack_1.write)(documentPath, _document_1.DocumentTemplate);
+            console.log("    \u2705  Created pages/_document.tsx".green);
             (0, fs_jetpack_1.write)(indexPath, index_1.IndexTemplate);
             console.log("    \u2705  Created pages/index.tsx".green);
             (0, fs_jetpack_1.write)(packagePath, package_1.PackageTemplate);

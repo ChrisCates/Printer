@@ -13,6 +13,8 @@ export async function generateComponent(path: string) {
     
     if (fileName.indexOf(`.`) !== -1) {
         name = fileName.split(`.`).map(word => word[0].toUpperCase() + word.substring(1)).join(``);
+    } else if (fileName.indexOf(`-`) !== -1) {
+        name = fileName.split(`-`).map(word => word[0].toUpperCase() + word.substring(1)).join(``);
     } else {
         name = name[0].toUpperCase() + name.substring(1);
     }

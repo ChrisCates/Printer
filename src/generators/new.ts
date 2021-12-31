@@ -25,10 +25,6 @@ export async function generateNewProject(path: string) {
     const reducersPath = join(process.cwd(), path, 'redux', 'reducers.json');
     const tsconfigPath = join(process.cwd(), path, 'tsconfig.json');
 
-    write(appPath, AppTemplate);
-    console.log(`    ✅  Created _app.tsx`.green);
-    write(documentPath, DocumentTemplate);
-    console.log(`    ✅  Created _document.tsx`.green);
     write(babelPath, BabelTemplate);
     console.log(`    ✅  Created .babelrc`.green);
     write(gitignorePath, GitIgnoreTemplate);
@@ -37,6 +33,10 @@ export async function generateNewProject(path: string) {
     console.log(`    ✅  Created .gitkeep`.green);
     write(gitkeepPublicPath, ``);
     console.log(`    ✅  Created public/.gitkeep`.green);
+    write(appPath, AppTemplate);
+    console.log(`    ✅  Created pages/_app.tsx`.green);
+    write(documentPath, DocumentTemplate);
+    console.log(`    ✅  Created pages/_document.tsx`.green);
     write(indexPath, IndexTemplate);
     console.log(`    ✅  Created pages/index.tsx`.green);
     write(packagePath, PackageTemplate);

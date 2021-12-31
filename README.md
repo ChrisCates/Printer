@@ -7,19 +7,17 @@
 [![Build Status](https://travis-ci.org/chriscates/printer.svg?branch=master)](https://travis-ci.org/chriscates/printer)
 [![codecov](https://codecov.io/gh/chriscates/printer/branch/master/graph/badge.svg)](https://codecov.io/gh/chriscates/printer)
 
-## Why Print?
+## Why Printer?
 
 - Easy to use Code Generation Tool.
 
 - Boilerplate Automation
 
-- Precision based approach to Next.js and Redux development.
+- Modularized
 
-    - Modularized
+- Easy to scale
 
-    - Easy to scale
-
-    - Easy to manage type systems and interfaces
+- Easy to manage type systems and interfaces
 
 ## How it works
 
@@ -47,6 +45,8 @@ printer component new/component
 ```
 
 Full command line tool API is specified in [CLI](./CLI.md).
+
+Full changelog specified in [CHANGELOG](./CHANGELOG.md).
 
 ## Design and Approach
 
