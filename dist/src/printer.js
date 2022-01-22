@@ -48,8 +48,8 @@ var prisma_1 = require("./generators/prisma");
 var schema_1 = require("./generators/schema");
 var Print = new commander_1.Command('🖨️ Printer | By Chris Cates');
 Print
-    .version('1.1.0')
-    .description('🖨️ Printer: A code generation tool Next.js, Redux, Prisma Development.');
+    .version('1.1.1')
+    .description('🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.');
 Print
     .command('new [path]')
     .description('Generate a new Printer project')

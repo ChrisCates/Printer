@@ -115,10 +115,10 @@ export const IndexTitleStyle = styled.div`
 
             div.window-buttons {
                 position: absolute;
-                right: 0;
+                left: 0;
                 top: 0;
                 display: flex;
-                padding: 7.5px 15px;
+                padding: 5px 5px;
                 div.window-button {
                     background: ${FrameYellow};
                     width: 15px;
@@ -133,12 +133,11 @@ export const IndexTitleStyle = styled.div`
 
         div.window-inner {
             position: relative;
-            top: 40px;
+            top: 35px;
             background: rgb(30, 30, 30);
-            width: calc(100% - 20px);
+            width: 100%;
             margin: auto;
             height: 100%;
-            border-radius: 9px;
             padding: 10px 20px;
             pointer-events: none;
 

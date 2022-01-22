@@ -47,6 +47,7 @@ $PATH/$NAME.component.tsx
 $PATH/$NAME.connect.tsx
 $PATH/$NAME.style.tsx
 $PATH/$NAME.test.tsx
+$PATH/$NAME.index.tsx
 ```
 
 ## Creating a new slice
