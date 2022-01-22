@@ -36,53 +36,31 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateComponent = void 0;
+exports.mergePrisma = void 0;
 var path_1 = require("path");
 var fs_jetpack_1 = require("fs-jetpack");
-var component_1 = require("../templates/component/component");
-var connect_1 = require("../templates/component/connect");
-var style_1 = require("../templates/component/style");
-var test_1 = require("../templates/component/test");
-var index_1 = require("../templates/component/index");
-function generateComponent(path) {
+var schema_1 = require("../templates/prisma/schema");
+function mergePrisma() {
     return __awaiter(this, void 0, void 0, function () {
-        var pathArray, fileName, name, component, componentPath, connect, connectPath, style, stylePath, test, testPath, index, indexPath;
+        var schemaPath, files, mergedFile, file, filePath, fileContents;
         return __generator(this, function (_a) {
-            pathArray = path.split('/');
-            fileName = pathArray[pathArray.length - 1];
-            name = fileName.replace(/[^\w\s]/gi, '');
-            if (fileName.indexOf(".") !== -1) {
-                name = fileName.split(".").map(function (word) { return word[0].toUpperCase() + word.substring(1); }).join("");
+            schemaPath = (0, path_1.join)(process.cwd(), 'prisma', 'schema.prisma');
+            files = (0, fs_jetpack_1.list)((0, path_1.join)(process.cwd(), 'prisma'));
+            mergedFile = schema_1.SchemaTemplate;
+            for (file in files) {
+                if (file !== 'schema.prisma' && file !== 'prisma.tsx' && file.indexOf('.prisma') !== -1) {
+                    filePath = (0, path_1.join)(process.cwd(), 'prisma', file);
+                    fileContents = (0, fs_jetpack_1.read)(filePath);
+                    mergedFile += "\n";
+                    mergedFile += fileContents;
+                    console.log("    \u2705  Merged prisma/".concat(file).green);
+                }
             }
-            else if (fileName.indexOf("-") !== -1) {
-                name = fileName.split("-").map(function (word) { return word[0].toUpperCase() + word.substring(1); }).join("");
-            }
-            else {
-                name = name[0].toUpperCase() + name.substring(1);
-            }
-            component = (0, component_1.ComponentTemplate)(fileName, name);
-            componentPath = (0, path_1.join)(process.cwd(), path, "".concat(fileName, ".component.tsx"));
-            connect = (0, connect_1.ConnectTemplate)(fileName, name);
-            connectPath = (0, path_1.join)(process.cwd(), path, "".concat(fileName, ".connect.tsx"));
-            style = (0, style_1.StyleTemplate)(fileName, name);
-            stylePath = (0, path_1.join)(process.cwd(), path, "".concat(fileName, ".style.tsx"));
-            test = (0, test_1.TestTemplate)(fileName, name);
-            testPath = (0, path_1.join)(process.cwd(), path, "".concat(fileName, ".test.tsx"));
-            index = (0, index_1.IndexTemplate)(fileName, name);
-            indexPath = (0, path_1.join)(process.cwd(), path, "index.tsx");
-            (0, fs_jetpack_1.write)(componentPath, component);
-            console.log("    \u2705  Created ".concat(fileName, ".component.tsx").green);
-            (0, fs_jetpack_1.write)(connectPath, connect);
-            console.log("    \u2705  Created ".concat(fileName, ".connect.tsx").green);
-            (0, fs_jetpack_1.write)(stylePath, style);
-            console.log("    \u2705  Created ".concat(fileName, ".style.tsx").green);
-            (0, fs_jetpack_1.write)(testPath, test);
-            console.log("    \u2705  Created ".concat(fileName, ".test.tsx").green);
-            (0, fs_jetpack_1.write)(indexPath, index);
-            console.log("    \u2705  Created index.tsx".green);
+            (0, fs_jetpack_1.write)(schemaPath, schema_1.SchemaTemplate);
+            console.log("    \u2705  Created prisma/schema.prisma".green);
             return [2 /*return*/];
         });
     });
 }
-exports.generateComponent = generateComponent;
-//# sourceMappingURL=component.js.map
+exports.mergePrisma = mergePrisma;
+//# sourceMappingURL=merge.js.map

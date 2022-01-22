@@ -5,6 +5,7 @@ import { ComponentTemplate } from '../templates/component/component';
 import { ConnectTemplate } from '../templates/component/connect';
 import { StyleTemplate } from '../templates/component/style';
 import { TestTemplate } from '../templates/component/test';
+import { IndexTemplate } from '../templates/component/index';
 
 export async function generateComponent(path: string) {
     const pathArray = path.split('/');
@@ -27,6 +28,8 @@ export async function generateComponent(path: string) {
     const stylePath = join(process.cwd(), path, `${fileName}.style.tsx`);
     const test = TestTemplate(fileName, name);
     const testPath = join(process.cwd(), path, `${fileName}.test.tsx`);
+    const index = IndexTemplate(fileName, name);
+    const indexPath = join(process.cwd(), path, `index.tsx`);
 
     write(componentPath, component);
     console.log(`    ✅  Created ${fileName}.component.tsx`.green);
@@ -36,4 +39,6 @@ export async function generateComponent(path: string) {
     console.log(`    ✅  Created ${fileName}.style.tsx`.green);
     write(testPath, test);
     console.log(`    ✅  Created ${fileName}.test.tsx`.green);
+    write(indexPath, index);
+    console.log(`    ✅  Created index.tsx`.green);
 }

@@ -10,8 +10,8 @@ import { generatePrismaSchema } from './generators/schema';
 const Print = new Command('🖨️ Printer | By Chris Cates');
 
 Print
-.version('1.0.1')
-.description('🖨️ Printer: A Prescriptive, Precision based approach to Next.js, Redux, Prisma Development.');
+.version('1.1.0')
+.description('🖨️ Printer: A code generation tool Next.js, Redux, Prisma Development.');
 
 Print
 .command('new [path]')
@@ -56,10 +56,18 @@ Print
 });
 
 Print
-.command('schema [name]')
+.command('prisma schema [name]')
 .description('Generate a new Prisma schema')
 .action(async name => {
     console.log(`👷  Generating new Prisma Schema`.green.bold);
+    await generatePrismaSchema(name);
+});
+
+Print
+.command('prisma merge')
+.description('Merge prisma schemas')
+.action(async name => {
+    console.log(`👷  Generating merged Prisma schema file`.green.bold);
     await generatePrismaSchema(name);
 });
 

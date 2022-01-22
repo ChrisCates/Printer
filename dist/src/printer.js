@@ -48,8 +48,8 @@ var prisma_1 = require("./generators/prisma");
 var schema_1 = require("./generators/schema");
 var Print = new commander_1.Command('🖨️ Printer | By Chris Cates');
 Print
-    .version('1.0.1')
-    .description('🖨️ Printer: A Prescriptive, Precision based approach to Next.js, Redux, Prisma Development.');
+    .version('1.1.0')
+    .description('🖨️ Printer: A code generation tool Next.js, Redux, Prisma Development.');
 Print
     .command('new [path]')
     .description('Generate a new Printer project')
@@ -128,13 +128,28 @@ Print
     });
 }); });
 Print
-    .command('schema [name]')
+    .command('prisma schema [name]')
     .description('Generate a new Prisma schema')
     .action(function (name) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 console.log("\uD83D\uDC77  Generating new Prisma Schema".green.bold);
+                return [4 /*yield*/, (0, schema_1.generatePrismaSchema)(name)];
+            case 1:
+                _a.sent();
+                return [2 /*return*/];
+        }
+    });
+}); });
+Print
+    .command('prisma merge')
+    .description('Merge prisma schemas')
+    .action(function (name) { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                console.log("\uD83D\uDC77  Generating merged Prisma schema file".green.bold);
                 return [4 /*yield*/, (0, schema_1.generatePrismaSchema)(name)];
             case 1:
                 _a.sent();

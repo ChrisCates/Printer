@@ -1,6 +1,6 @@
 # 🖨️ Printer
 
-## A prescriptive, precision based approach to Next.js, Redux, Prisma Development. 
+## A code generation tool Next.js, Redux, Prisma Development.
 
 ![license](https://img.shields.io/badge/license-AGPLv3-blue.svg)
 ![version](https://img.shields.io/badge/version-1.0.0-blue.svg)
@@ -66,13 +66,15 @@ printer component components/hello/world
 
 ```bash
 # React FC
-components/hello/world.component.tsx
+components/hello/world/world.component.tsx
 # Redux Connect Component
-components/hello/world.connect.tsx
+components/hello/world/world.connect.tsx
 # Style Component
-components/hello/world.style.tsx
+components/hello/world/world.style.tsx
 # Test Component
-components/hello/world.test.tsx
+components/hello/world/world.test.tsx
+# Index File
+components/hello/world/world.test.tsx
 ```
 
 ### Slices

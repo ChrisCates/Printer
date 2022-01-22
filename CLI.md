@@ -107,14 +107,22 @@ prisma/schema.prisma
 Run this schema to add a new Prisma Schema to your Printer project:
 
 ```bash
-printer schema $NAME
+printer prisma schema $NAME
 
 # Example
-printer schema HelloWorld
+printer prisma schema HelloWorld
 ```
 
 Running this command will generate the following:
 
 ```bash
 prisma/$NAME.prisma
+```
+
+## Merging Prisma Schema
+
+Run this command to merge all schemas into `schema.prisma`.
+
+```bash
+printer prisma merge
 ```

@@ -2,10 +2,11 @@ export const TSConfigTemplate = `{
     "compilerOptions": {
         "target": "es5",
         "lib": [
-        "dom",
-        "dom.iterable",
-        "esnext"
+            "dom",
+            "dom.iterable",
+            "esnext"
         ],
+        "baseUrl": "./",
         "allowJs": true,
         "skipLibCheck": true,
         "strict": false,

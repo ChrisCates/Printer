@@ -4,7 +4,13 @@ export const PackageTemplate = `{
     "scripts": {
         "dev": "next dev --port 4200",
         "build": "next build",
-        "start": "next start"
+        "start": "next start",
+        "prepare": "husky install"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run build"
+        }
     },
     "dependencies": {
         "@reduxjs/toolkit": "^1.7.1",
@@ -17,6 +23,7 @@ export const PackageTemplate = `{
     },
     "devDependencies": {
         "babel-plugin-styled-components": "^2.0.2",
+        "husky": "^7.0.4",
         "typescript": "^4.5.4"
     }
 }
