@@ -10,8 +10,8 @@ import { generatePrismaSchema } from './generators/schema';
 const Print = new Command('🖨️ Printer | By Chris Cates');
 
 Print
-.version('1.1.0')
-.description('🖨️ Printer: A code generation tool Next.js, Redux, Prisma Development.');
+.version('1.1.1')
+.description('🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.');
 
 Print
 .command('new [path]')

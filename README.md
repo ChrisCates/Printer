@@ -1,6 +1,6 @@
 # 🖨️ Printer
 
-## A code generation tool Next.js, Redux, Prisma Development.
+## A code generation tool for Next.js, Redux, Prisma Development.
 
 ![license](https://img.shields.io/badge/license-AGPLv3-blue.svg)
 ![version](https://img.shields.io/badge/version-1.0.0-blue.svg)

@@ -12,7 +12,7 @@ export function IndexTitleComponent({ }: IndexTitleI) {
                 <img src="/image/printer.png"/>
                 <div className="text">
                     <h1>Printer</h1>
-                    <p>A prescriptive, precision based approach to Next.js, Redux, Prisma Development.</p>
+                    <p>A code generation tool for Next.js, Redux, Prisma Development.</p>
                     <div className="buttons">
                         <a className="button" href="https://github.com/ChrisCates/Printer" target="github">
                             <FiGithub className="i"/>

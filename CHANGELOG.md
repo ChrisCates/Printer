@@ -1,5 +1,11 @@
 # 🖨️ Printer | Changelog
 
+## 1.1.1
+
+- Fix copy
+
+- Update homepage CSS
+
 ## 1.1.0
 
 - Added `index.tsx` for new components generated with `printer component ${PATH}`.
