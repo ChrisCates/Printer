@@ -2,6 +2,7 @@ import 'colors';
 import { Command } from 'commander';
 import { generateNewProject } from './generators/new';
 import { generateComponent } from './generators/component';
+import { reindexComponents } from './generators/reindex';
 import { generateSlice } from './generators/slice';
 import { generatePage } from './generators/page';
 import { generatePrisma } from './generators/prisma';
@@ -10,7 +11,7 @@ import { generatePrismaSchema } from './generators/schema';
 const Print = new Command('🖨️ Printer | By Chris Cates');
 
 Print
-.version('1.1.1')
+.version('1.1.2')
 .description('🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.');
 
 Print
@@ -27,6 +28,14 @@ Print
 .action(async path => {
     console.log(`👷  Generating new Printer component ${path}`.green.bold);
     await generateComponent(path);
+});
+
+Print
+.command('reindex [path]')
+.description('Reindex all Printer components in the following path')
+.action(async path => {
+    console.log(`🔧  Reindexing all Printer components in the ${path} folder`.green.bold);
+    await reindexComponents(path);
 });
 
 Print

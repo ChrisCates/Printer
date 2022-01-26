@@ -1,5 +1,18 @@
 # 🖨️ Printer | Changelog
 
+## 1.1.2
+
+- Created the `reindex` command
+
+```bash
+printer reindex ${PATH}
+
+# Example
+Printer reindex components
+```
+
+This command will automatically update all component folders with an `index.tsx` file.
+
 ## 1.1.1
 
 - Fix copy

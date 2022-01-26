@@ -42,13 +42,14 @@ require("colors");
 var commander_1 = require("commander");
 var new_1 = require("./generators/new");
 var component_1 = require("./generators/component");
+var reindex_1 = require("./generators/reindex");
 var slice_1 = require("./generators/slice");
 var page_1 = require("./generators/page");
 var prisma_1 = require("./generators/prisma");
 var schema_1 = require("./generators/schema");
 var Print = new commander_1.Command('🖨️ Printer | By Chris Cates');
 Print
-    .version('1.1.1')
+    .version('1.1.2')
     .description('🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.');
 Print
     .command('new [path]')
@@ -74,6 +75,21 @@ Print
             case 0:
                 console.log("\uD83D\uDC77  Generating new Printer component ".concat(path).green.bold);
                 return [4 /*yield*/, (0, component_1.generateComponent)(path)];
+            case 1:
+                _a.sent();
+                return [2 /*return*/];
+        }
+    });
+}); });
+Print
+    .command('reindex [path]')
+    .description('Reindex all Printer components in the following path')
+    .action(function (path) { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                console.log("\uD83D\uDD27  Reindexing all Printer components in the ".concat(path, " folder").green.bold);
+                return [4 /*yield*/, (0, reindex_1.reindexComponents)(path)];
             case 1:
                 _a.sent();
                 return [2 /*return*/];

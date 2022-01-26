@@ -127,3 +127,16 @@ Run this command to merge all schemas into `schema.prisma`.
 ```bash
 printer prisma merge
 ```
+
+## Reindexing components
+
+Generated Printer components using `v1.0.0`? And want to use the new `v1.1.0` standard? Just use the `reindex` command
+
+```bash
+printer reindex ${PATH}
+
+# Example
+Printer reindex components
+```
+
+This command will automatically update all component folders with an `index.tsx` file.
