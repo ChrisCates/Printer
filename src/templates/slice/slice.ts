@@ -1,5 +1,5 @@
-export function SliceTemplate(name: string) {
-    return `import { createSlice } from "@reduxjs/toolkit";
+export function SliceTemplate (name: string) {
+  return `import { createSlice } from "@reduxjs/toolkit";
 
 export const ${name}InitialState = {
 
@@ -13,5 +13,5 @@ export const ${name}Slice = createSlice({
     },
 });
 
-export const { } = ${name}Slice.actions;`;
+export const { } = ${name}Slice.actions;`
 }

@@ -27,4 +27,4 @@ export const PackageTemplate = `{
         "typescript": "^4.5.4"
     }
 }
-`;
+`

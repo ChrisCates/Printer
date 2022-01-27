@@ -16,4 +16,4 @@ export class AppComponent extends App<AppInitialProps> {
 }
 
 export default wrapper.withRedux(AppComponent);
-`;
+`

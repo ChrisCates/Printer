@@ -1,1 +1,1 @@
-export const ReduxReducerTemplate = `export const reducer = { }`;
+export const ReduxReducerTemplate = 'export const reducer = { }'

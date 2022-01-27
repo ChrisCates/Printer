@@ -29,4 +29,4 @@ export const TSConfigTemplate = `{
         "node_modules"
     ]
 }
-`;
+`
