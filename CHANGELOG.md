@@ -1,5 +1,15 @@
 # 🖨️ Printer | Changelog
 
+## 1.2.0
+
+- Added Circle CI Integration
+
+- Added baseline Jest unit tests
+
+- Added eslint configuration
+
+- Add pre commit hooks
+
 ## 1.1.2
 
 - Created the `reindex` command

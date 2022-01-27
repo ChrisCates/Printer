@@ -1,6 +1,7 @@
 import { join } from 'path'
 import { write } from 'fs-jetpack'
 
+import { Log } from '../helpers/log'
 import { PageTemplate } from '../templates/page'
 
 export async function generatePage (path: string) {
@@ -19,5 +20,5 @@ export async function generatePage (path: string) {
   const pagePath = join(process.cwd(), 'pages', `${path}.tsx`)
 
   write(pagePath, PageTemplate(name))
-  console.log(`    ✅  Created pages/${path}.tsx`.green)
+  Log(`    ✅  Created pages/${path}.tsx`.green)
 }

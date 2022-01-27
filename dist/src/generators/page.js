@@ -39,6 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.generatePage = void 0;
 var path_1 = require("path");
 var fs_jetpack_1 = require("fs-jetpack");
+var log_1 = require("../helpers/log");
 var page_1 = require("../templates/page");
 function generatePage(path) {
     return __awaiter(this, void 0, void 0, function () {
@@ -47,18 +48,18 @@ function generatePage(path) {
             pathArray = path.split('/');
             fileName = pathArray[pathArray.length - 1];
             name = fileName.replace(/[^\w\s]/gi, '');
-            if (fileName.indexOf(".") !== -1) {
-                name = fileName.split(".").map(function (word) { return word[0].toUpperCase() + word.substring(1); }).join("");
+            if (fileName.indexOf('.') !== -1) {
+                name = fileName.split('.').map(function (word) { return word[0].toUpperCase() + word.substring(1); }).join('');
             }
-            else if (fileName.indexOf("-") !== -1) {
-                name = fileName.split("-").map(function (word) { return word[0].toUpperCase() + word.substring(1); }).join("");
+            else if (fileName.indexOf('-') !== -1) {
+                name = fileName.split('-').map(function (word) { return word[0].toUpperCase() + word.substring(1); }).join('');
             }
             else {
                 name = name[0].toUpperCase() + name.substring(1);
             }
             pagePath = (0, path_1.join)(process.cwd(), 'pages', "".concat(path, ".tsx"));
             (0, fs_jetpack_1.write)(pagePath, (0, page_1.PageTemplate)(name));
-            console.log("    \u2705  Created pages/".concat(path, ".tsx").green);
+            (0, log_1.Log)("    \u2705  Created pages/".concat(path, ".tsx").green);
             return [2 /*return*/];
         });
     });

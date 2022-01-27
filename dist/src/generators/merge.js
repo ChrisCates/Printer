@@ -39,6 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.mergePrisma = void 0;
 var path_1 = require("path");
 var fs_jetpack_1 = require("fs-jetpack");
+var log_1 = require("../helpers/log");
 var schema_1 = require("../templates/prisma/schema");
 function mergePrisma() {
     return __awaiter(this, void 0, void 0, function () {
@@ -51,13 +52,14 @@ function mergePrisma() {
                 if (file !== 'schema.prisma' && file !== 'prisma.tsx' && file.indexOf('.prisma') !== -1) {
                     filePath = (0, path_1.join)(process.cwd(), 'prisma', file);
                     fileContents = (0, fs_jetpack_1.read)(filePath);
-                    mergedFile += "\n";
+                    mergedFile += '\n';
                     mergedFile += fileContents;
-                    console.log("    \u2705  Merged prisma/".concat(file).green);
+                    if (process.env.NODE_ENV !== 'test')
+                        (0, log_1.Log)("    \u2705  Merged prisma/".concat(file).green);
                 }
             }
-            (0, fs_jetpack_1.write)(schemaPath, schema_1.SchemaTemplate);
-            console.log("    \u2705  Created prisma/schema.prisma".green);
+            (0, fs_jetpack_1.write)(schemaPath, mergedFile);
+            (0, log_1.Log)('    ✅  Created prisma/schema.prisma'.green);
             return [2 /*return*/];
         });
     });

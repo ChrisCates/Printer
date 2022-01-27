@@ -39,6 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateComponent = void 0;
 var path_1 = require("path");
 var fs_jetpack_1 = require("fs-jetpack");
+var log_1 = require("../helpers/log");
 var component_1 = require("../templates/component/component");
 var connect_1 = require("../templates/component/connect");
 var style_1 = require("../templates/component/style");
@@ -51,11 +52,11 @@ function generateComponent(path) {
             pathArray = path.split('/');
             fileName = pathArray[pathArray.length - 1];
             name = fileName.replace(/[^\w\s]/gi, '');
-            if (fileName.indexOf(".") !== -1) {
-                name = fileName.split(".").map(function (word) { return word[0].toUpperCase() + word.substring(1); }).join("");
+            if (fileName.indexOf('.') !== -1) {
+                name = fileName.split('.').map(function (word) { return word[0].toUpperCase() + word.substring(1); }).join('');
             }
-            else if (fileName.indexOf("-") !== -1) {
-                name = fileName.split("-").map(function (word) { return word[0].toUpperCase() + word.substring(1); }).join("");
+            else if (fileName.indexOf('-') !== -1) {
+                name = fileName.split('-').map(function (word) { return word[0].toUpperCase() + word.substring(1); }).join('');
             }
             else {
                 name = name[0].toUpperCase() + name.substring(1);
@@ -69,17 +70,17 @@ function generateComponent(path) {
             test = (0, test_1.TestTemplate)(fileName, name);
             testPath = (0, path_1.join)(process.cwd(), path, "".concat(fileName, ".test.tsx"));
             index = (0, index_1.IndexTemplate)(fileName, name);
-            indexPath = (0, path_1.join)(process.cwd(), path, "index.tsx");
+            indexPath = (0, path_1.join)(process.cwd(), path, 'index.tsx');
             (0, fs_jetpack_1.write)(componentPath, component);
-            console.log("    \u2705  Created ".concat(fileName, ".component.tsx").green);
+            (0, log_1.Log)("    \u2705  Created ".concat(fileName, ".component.tsx").green);
             (0, fs_jetpack_1.write)(connectPath, connect);
-            console.log("    \u2705  Created ".concat(fileName, ".connect.tsx").green);
+            (0, log_1.Log)("    \u2705  Created ".concat(fileName, ".connect.tsx").green);
             (0, fs_jetpack_1.write)(stylePath, style);
-            console.log("    \u2705  Created ".concat(fileName, ".style.tsx").green);
+            (0, log_1.Log)("    \u2705  Created ".concat(fileName, ".style.tsx").green);
             (0, fs_jetpack_1.write)(testPath, test);
-            console.log("    \u2705  Created ".concat(fileName, ".test.tsx").green);
+            (0, log_1.Log)("    \u2705  Created ".concat(fileName, ".test.tsx").green);
             (0, fs_jetpack_1.write)(indexPath, index);
-            console.log("    \u2705  Created index.tsx".green);
+            (0, log_1.Log)('    ✅  Created index.tsx'.green);
             return [2 /*return*/];
         });
     });

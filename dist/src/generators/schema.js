@@ -39,6 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.generatePrismaSchema = void 0;
 var path_1 = require("path");
 var fs_jetpack_1 = require("fs-jetpack");
+var log_1 = require("../helpers/log");
 var new_schema_1 = require("../templates/prisma/new.schema");
 function generatePrismaSchema(name) {
     return __awaiter(this, void 0, void 0, function () {
@@ -46,7 +47,7 @@ function generatePrismaSchema(name) {
         return __generator(this, function (_a) {
             schemaPath = (0, path_1.join)(process.cwd(), 'prisma', "".concat(name, ".prisma"));
             (0, fs_jetpack_1.write)(schemaPath, (0, new_schema_1.NewSchemaTemplate)(name));
-            console.log("    \u2705  Created prisma/".concat(name, ".schema").green);
+            (0, log_1.Log)("    \u2705  Created prisma/".concat(name, ".schema").green);
             return [2 /*return*/];
         });
     });

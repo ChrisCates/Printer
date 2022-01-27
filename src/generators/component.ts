@@ -1,6 +1,7 @@
 import { join } from 'path'
 import { write } from 'fs-jetpack'
 
+import { Log } from '../helpers/log'
 import { ComponentTemplate } from '../templates/component/component'
 import { ConnectTemplate } from '../templates/component/connect'
 import { StyleTemplate } from '../templates/component/style'
@@ -32,13 +33,13 @@ export async function generateComponent (path: string) {
   const indexPath = join(process.cwd(), path, 'index.tsx')
 
   write(componentPath, component)
-  console.log(`    ✅  Created ${fileName}.component.tsx`.green)
+  Log(`    ✅  Created ${fileName}.component.tsx`.green)
   write(connectPath, connect)
-  console.log(`    ✅  Created ${fileName}.connect.tsx`.green)
+  Log(`    ✅  Created ${fileName}.connect.tsx`.green)
   write(stylePath, style)
-  console.log(`    ✅  Created ${fileName}.style.tsx`.green)
+  Log(`    ✅  Created ${fileName}.style.tsx`.green)
   write(testPath, test)
-  console.log(`    ✅  Created ${fileName}.test.tsx`.green)
+  Log(`    ✅  Created ${fileName}.test.tsx`.green)
   write(indexPath, index)
-  console.log('    ✅  Created index.tsx'.green)
+  Log('    ✅  Created index.tsx'.green)
 }

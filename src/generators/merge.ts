@@ -1,6 +1,7 @@
 import { join } from 'path'
 import { list, read, write } from 'fs-jetpack'
 
+import { Log } from '../helpers/log'
 import { SchemaTemplate } from '../templates/prisma/schema'
 
 export async function mergePrisma () {
@@ -15,10 +16,11 @@ export async function mergePrisma () {
 
       mergedFile += '\n'
       mergedFile += fileContents
-      console.log(`    ✅  Merged prisma/${file}`.green)
+
+      if (process.env.NODE_ENV !== 'test') { Log(`    ✅  Merged prisma/${file}`.green) }
     }
   }
 
   write(schemaPath, mergedFile)
-  console.log('    ✅  Created prisma/schema.prisma'.green)
+  Log('    ✅  Created prisma/schema.prisma'.green)
 }

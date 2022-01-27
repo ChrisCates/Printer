@@ -1,5 +1,6 @@
 import 'colors'
 import { Command } from 'commander'
+import { Log } from './helpers/log'
 import { generateNewProject } from './generators/new'
 import { generateComponent } from './generators/component'
 import { reindexComponents } from './generators/reindex'
@@ -8,17 +9,17 @@ import { generatePage } from './generators/page'
 import { generatePrisma } from './generators/prisma'
 import { generatePrismaSchema } from './generators/schema'
 
-const Print = new Command('🖨️ Printer | By Chris Cates')
+export const Print = new Command('🖨️ Printer | By Chris Cates')
 
 Print
-  .version('1.1.2')
+  .version('1.2.0')
   .description('🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.')
 
 Print
   .command('new [path]')
   .description('Generate a new Printer project')
   .action(async path => {
-    console.log('👷  Generating new Printer project'.green.bold)
+    Log('👷  Generating new Printer project'.green)
     await generateNewProject(path)
   })
 
@@ -26,7 +27,7 @@ Print
   .command('component [path]')
   .description('Generate a new Printer component')
   .action(async path => {
-    console.log(`👷  Generating new Printer component ${path}`.green.bold)
+    Log(`👷  Generating new Printer component ${path}`.green)
     await generateComponent(path)
   })
 
@@ -34,7 +35,7 @@ Print
   .command('reindex [path]')
   .description('Reindex all Printer components in the following path')
   .action(async path => {
-    console.log(`🔧  Reindexing all Printer components in the ${path} folder`.green.bold)
+    Log(`🔧  Reindexing all Printer components in the ${path} folder`.green)
     await reindexComponents(path)
   })
 
@@ -42,7 +43,7 @@ Print
   .command('slice [name]')
   .description('Generate a new Printer slice')
   .action(async name => {
-    console.log(`👷  Generating new Printer slice ${name}`.green.bold)
+    Log(`👷  Generating new Printer slice ${name}`.green)
     await generateSlice(name)
   })
 
@@ -50,7 +51,7 @@ Print
   .command('page [path]')
   .description('Generate a new Printer page')
   .action(async path => {
-    console.log('👷  Generating new Printer page'.green.bold)
+    Log('👷  Generating new Printer page'.green)
     await generatePage(path)
   })
 
@@ -58,17 +59,17 @@ Print
   .command('prisma')
   .description('Add prisma to a Printer project')
   .action(async () => {
-    console.log('👷  Generating new Prisma Configuration'.green.bold)
+    Log('👷  Generating new Prisma Configuration'.green)
     await generatePrisma()
-    console.log('Don\'t forget to run "yarn add prisma" to your project.'.yellow)
-    console.log('Also don\'t forget to update your .env with the DATABASE_URL. Happy printing! 🖨️  🖨️  🖨️'.yellow)
+    Log('Don\'t forget to run "yarn add prisma" to your project.'.yellow)
+    Log('Also don\'t forget to update your .env with the DATABASE_URL. Happy printing! 🖨️  🖨️  🖨️'.yellow)
   })
 
 Print
   .command('prisma schema [name]')
   .description('Generate a new Prisma schema')
   .action(async name => {
-    console.log('👷  Generating new Prisma Schema'.green.bold)
+    Log('👷  Generating new Prisma Schema'.green)
     await generatePrismaSchema(name)
   })
 
@@ -76,8 +77,10 @@ Print
   .command('prisma merge')
   .description('Merge prisma schemas')
   .action(async name => {
-    console.log('👷  Generating merged Prisma schema file'.green.bold)
+    Log('👷  Generating merged Prisma schema file'.green)
     await generatePrismaSchema(name)
   })
 
-Print.parse(process.argv)
+if (process.env.NODE_ENV !== 'test') {
+  Print.parse(process.argv)
+}

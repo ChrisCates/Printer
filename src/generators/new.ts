@@ -1,6 +1,7 @@
 import { join } from 'path'
 import { write } from 'fs-jetpack'
 
+import { Log } from '../helpers/log'
 import { AppTemplate } from '../templates/new/_app'
 import { DocumentTemplate } from '../templates/new/_document'
 import { BabelTemplate } from '../templates/new/babel'
@@ -26,27 +27,27 @@ export async function generateNewProject (path: string) {
   const tsconfigPath = join(process.cwd(), path, 'tsconfig.json')
 
   write(babelPath, BabelTemplate)
-  console.log('    ✅  Created .babelrc'.green)
+  Log('    ✅  Created .babelrc'.green)
   write(gitignorePath, GitIgnoreTemplate)
-  console.log('    ✅  Created .gitignore'.green)
+  Log('    ✅  Created .gitignore'.green)
   write(gitkeepPath, '')
-  console.log('    ✅  Created .gitkeep'.green)
+  Log('    ✅  Created .gitkeep'.green)
   write(gitkeepPublicPath, '')
-  console.log('    ✅  Created public/.gitkeep'.green)
+  Log('    ✅  Created public/.gitkeep'.green)
   write(appPath, AppTemplate)
-  console.log('    ✅  Created pages/_app.tsx'.green)
+  Log('    ✅  Created pages/_app.tsx'.green)
   write(documentPath, DocumentTemplate)
-  console.log('    ✅  Created pages/_document.tsx'.green)
+  Log('    ✅  Created pages/_document.tsx'.green)
   write(indexPath, IndexTemplate)
-  console.log('    ✅  Created pages/index.tsx'.green)
+  Log('    ✅  Created pages/index.tsx'.green)
   write(packagePath, PackageTemplate)
-  console.log('    ✅  Created package.json'.green)
+  Log('    ✅  Created package.json'.green)
   write(wrapperPath, ReduxWrapperTemplate)
-  console.log('    ✅  Created redux/redux.wrapper.tsx'.green)
+  Log('    ✅  Created redux/redux.wrapper.tsx'.green)
   write(reducerPath, ReduxReducerTemplate)
-  console.log('    ✅  Created redux/redux.reducer.tsx'.green)
+  Log('    ✅  Created redux/redux.reducer.tsx'.green)
   write(reducersPath, '[]')
-  console.log('    ✅  Created redux/reducers.json'.green)
+  Log('    ✅  Created redux/reducers.json'.green)
   write(tsconfigPath, TSConfigTemplate)
-  console.log('    ✅  Created tsconfig.json'.green)
+  Log('    ✅  Created tsconfig.json'.green)
 }

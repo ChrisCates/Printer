@@ -1,6 +1,7 @@
 import { join } from 'path'
 import { read, write } from 'fs-jetpack'
 
+import { Log } from '../helpers/log'
 import { SliceTemplate } from '../templates/slice/slice'
 import { ReduxReducerTemplate } from '../templates/slice/redux.reducer'
 
@@ -15,12 +16,12 @@ export async function generateSlice (name: string) {
     reducers.push(name)
     write(reducersPath, JSON.stringify(reducers, null, 2))
   } catch (error) {
-    console.error('    ❗  redux/reducers.json is invalid, please make sure it\'s a JSON Array'.red)
+    Log('    ❗  redux/reducers.json is invalid, please make sure it\'s a JSON Array'.red)
     process.exit()
   }
 
   write(slicePath, SliceTemplate(name))
-  console.log(`    ✅  Created redux/slice.${name}.tsx`.green)
+  Log(`    ✅  Created redux/slice.${name}.tsx`.green)
   write(reducerPath, ReduxReducerTemplate(reducers))
-  console.log('    ✅  Updated redux/redux.reducer.tsx'.green)
+  Log('    ✅  Updated redux/redux.reducer.tsx'.green)
 }

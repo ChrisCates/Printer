@@ -38,8 +38,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Print = void 0;
 require("colors");
 var commander_1 = require("commander");
+var log_1 = require("./helpers/log");
 var new_1 = require("./generators/new");
 var component_1 = require("./generators/component");
 var reindex_1 = require("./generators/reindex");
@@ -47,18 +49,18 @@ var slice_1 = require("./generators/slice");
 var page_1 = require("./generators/page");
 var prisma_1 = require("./generators/prisma");
 var schema_1 = require("./generators/schema");
-var Print = new commander_1.Command('🖨️ Printer | By Chris Cates');
-Print
-    .version('1.1.2')
+exports.Print = new commander_1.Command('🖨️ Printer | By Chris Cates');
+exports.Print
+    .version('1.2.0')
     .description('🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.');
-Print
+exports.Print
     .command('new [path]')
     .description('Generate a new Printer project')
     .action(function (path) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                console.log("\uD83D\uDC77  Generating new Printer project".green.bold);
+                (0, log_1.Log)('👷  Generating new Printer project'.green);
                 return [4 /*yield*/, (0, new_1.generateNewProject)(path)];
             case 1:
                 _a.sent();
@@ -66,14 +68,14 @@ Print
         }
     });
 }); });
-Print
+exports.Print
     .command('component [path]')
     .description('Generate a new Printer component')
     .action(function (path) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                console.log("\uD83D\uDC77  Generating new Printer component ".concat(path).green.bold);
+                (0, log_1.Log)("\uD83D\uDC77  Generating new Printer component ".concat(path).green);
                 return [4 /*yield*/, (0, component_1.generateComponent)(path)];
             case 1:
                 _a.sent();
@@ -81,14 +83,14 @@ Print
         }
     });
 }); });
-Print
+exports.Print
     .command('reindex [path]')
     .description('Reindex all Printer components in the following path')
     .action(function (path) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                console.log("\uD83D\uDD27  Reindexing all Printer components in the ".concat(path, " folder").green.bold);
+                (0, log_1.Log)("\uD83D\uDD27  Reindexing all Printer components in the ".concat(path, " folder").green);
                 return [4 /*yield*/, (0, reindex_1.reindexComponents)(path)];
             case 1:
                 _a.sent();
@@ -96,14 +98,14 @@ Print
         }
     });
 }); });
-Print
+exports.Print
     .command('slice [name]')
     .description('Generate a new Printer slice')
     .action(function (name) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                console.log("\uD83D\uDC77  Generating new Printer slice ".concat(name).green.bold);
+                (0, log_1.Log)("\uD83D\uDC77  Generating new Printer slice ".concat(name).green);
                 return [4 /*yield*/, (0, slice_1.generateSlice)(name)];
             case 1:
                 _a.sent();
@@ -111,14 +113,14 @@ Print
         }
     });
 }); });
-Print
+exports.Print
     .command('page [path]')
     .description('Generate a new Printer page')
     .action(function (path) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                console.log("\uD83D\uDC77  Generating new Printer page".green.bold);
+                (0, log_1.Log)('👷  Generating new Printer page'.green);
                 return [4 /*yield*/, (0, page_1.generatePage)(path)];
             case 1:
                 _a.sent();
@@ -126,31 +128,31 @@ Print
         }
     });
 }); });
-Print
+exports.Print
     .command('prisma')
     .description('Add prisma to a Printer project')
     .action(function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                console.log("\uD83D\uDC77  Generating new Prisma Configuration".green.bold);
+                (0, log_1.Log)('👷  Generating new Prisma Configuration'.green);
                 return [4 /*yield*/, (0, prisma_1.generatePrisma)()];
             case 1:
                 _a.sent();
-                console.log("Don't forget to run \"yarn add prisma\" to your project.".yellow);
-                console.log("Also don't forget to update your .env with the DATABASE_URL. Happy printing! \uD83D\uDDA8\uFE0F  \uD83D\uDDA8\uFE0F  \uD83D\uDDA8\uFE0F".yellow);
+                (0, log_1.Log)('Don\'t forget to run "yarn add prisma" to your project.'.yellow);
+                (0, log_1.Log)('Also don\'t forget to update your .env with the DATABASE_URL. Happy printing! 🖨️  🖨️  🖨️'.yellow);
                 return [2 /*return*/];
         }
     });
 }); });
-Print
+exports.Print
     .command('prisma schema [name]')
     .description('Generate a new Prisma schema')
     .action(function (name) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                console.log("\uD83D\uDC77  Generating new Prisma Schema".green.bold);
+                (0, log_1.Log)('👷  Generating new Prisma Schema'.green);
                 return [4 /*yield*/, (0, schema_1.generatePrismaSchema)(name)];
             case 1:
                 _a.sent();
@@ -158,14 +160,14 @@ Print
         }
     });
 }); });
-Print
+exports.Print
     .command('prisma merge')
     .description('Merge prisma schemas')
     .action(function (name) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                console.log("\uD83D\uDC77  Generating merged Prisma schema file".green.bold);
+                (0, log_1.Log)('👷  Generating merged Prisma schema file'.green);
                 return [4 /*yield*/, (0, schema_1.generatePrismaSchema)(name)];
             case 1:
                 _a.sent();
@@ -173,5 +175,7 @@ Print
         }
     });
 }); });
-Print.parse(process.argv);
+if (process.env.NODE_ENV !== 'test') {
+    exports.Print.parse(process.argv);
+}
 //# sourceMappingURL=printer.js.map

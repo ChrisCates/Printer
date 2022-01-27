@@ -39,6 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateSlice = void 0;
 var path_1 = require("path");
 var fs_jetpack_1 = require("fs-jetpack");
+var log_1 = require("../helpers/log");
 var slice_1 = require("../templates/slice/slice");
 var redux_reducer_1 = require("../templates/slice/redux.reducer");
 function generateSlice(name) {
@@ -55,13 +56,13 @@ function generateSlice(name) {
                 (0, fs_jetpack_1.write)(reducersPath, JSON.stringify(reducers, null, 2));
             }
             catch (error) {
-                console.error("    \u2757  redux/reducers.json is invalid, please make sure it's a JSON Array".red);
+                (0, log_1.Log)('    ❗  redux/reducers.json is invalid, please make sure it\'s a JSON Array'.red);
                 process.exit();
             }
             (0, fs_jetpack_1.write)(slicePath, (0, slice_1.SliceTemplate)(name));
-            console.log("    \u2705  Created redux/slice.".concat(name, ".tsx").green);
+            (0, log_1.Log)("    \u2705  Created redux/slice.".concat(name, ".tsx").green);
             (0, fs_jetpack_1.write)(reducerPath, (0, redux_reducer_1.ReduxReducerTemplate)(reducers));
-            console.log("    \u2705  Updated redux/redux.reducer.tsx".green);
+            (0, log_1.Log)('    ✅  Updated redux/redux.reducer.tsx'.green);
             return [2 /*return*/];
         });
     });

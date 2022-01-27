@@ -3,8 +3,8 @@
 ## A code generation tool for Next.js, Redux, Prisma Development.
 
 ![license](https://img.shields.io/badge/license-AGPLv3-blue.svg)
-![version](https://img.shields.io/badge/version-1.0.0-blue.svg)
-[![Build Status](https://travis-ci.org/chriscates/printer.svg?branch=master)](https://travis-ci.org/chriscates/printer)
+![version](https://img.shields.io/badge/version-1.2.0-blue.svg)
+[![CircleCI](https://circleci.com/gh/ChrisCates/Printer.svg?style=svg)](https://circleci.com/gh/ChrisCates/Printer)
 [![codecov](https://codecov.io/gh/chriscates/printer/branch/master/graph/badge.svg)](https://codecov.io/gh/chriscates/printer)
 
 ## Why Printer?

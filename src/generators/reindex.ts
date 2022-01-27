@@ -1,6 +1,7 @@
 import { join } from 'path'
 import { inspect, list, write } from 'fs-jetpack'
 
+import { Log } from '../helpers/log'
 import { IndexTemplate } from '../templates/component/index'
 
 export async function reindexComponents (path: string) {
@@ -34,7 +35,7 @@ export async function reindexComponents (path: string) {
             const indexPath = join(process.cwd(), path, 'index.tsx')
 
             write(indexPath, index)
-            console.log(`    ✅  Created ${join(path, 'index.tsx')}`.green)
+            Log(`    ✅  Created ${join(path, 'index.tsx')}`.green)
           }
         }
       }
