@@ -51,7 +51,7 @@ var prisma_1 = require("./generators/prisma");
 var schema_1 = require("./generators/schema");
 exports.Print = new commander_1.Command('🖨️ Printer | By Chris Cates');
 exports.Print
-    .version('1.2.0')
+    .version('1.2.1')
     .description('🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.');
 exports.Print
     .command('new [path]')
@@ -146,7 +146,7 @@ exports.Print
     });
 }); });
 exports.Print
-    .command('prisma schema [name]')
+    .command('prisma-schema [name]')
     .description('Generate a new Prisma schema')
     .action(function (name) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
@@ -161,7 +161,7 @@ exports.Print
     });
 }); });
 exports.Print
-    .command('prisma merge')
+    .command('prisma-merge')
     .description('Merge prisma schemas')
     .action(function (name) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {

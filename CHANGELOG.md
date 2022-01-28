@@ -1,5 +1,17 @@
 # 🖨️ Printer | Changelog
 
+## 1.2.1
+
+- Fixed `prisma` auxillary commands
+
+- Improved formatting and layout of jest unit tests
+
+- Added more unit tests (now 90% coverage)
+
+- Removed redundant modules
+
+- Updated Documentation
+
 ## 1.2.0
 
 - Added Circle CI Integration

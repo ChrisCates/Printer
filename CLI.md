@@ -108,10 +108,10 @@ prisma/schema.prisma
 Run this schema to add a new Prisma Schema to your Printer project:
 
 ```bash
-printer prisma schema $NAME
+printer prisma-schema $NAME
 
 # Example
-printer prisma schema HelloWorld
+printer prisma-schema HelloWorld
 ```
 
 Running this command will generate the following:
@@ -125,12 +125,12 @@ prisma/$NAME.prisma
 Run this command to merge all schemas into `schema.prisma`.
 
 ```bash
-printer prisma merge
+printer prisma-merge
 ```
 
 ## Reindexing components
 
-Generated Printer components using `v1.0.0`? And want to use the new `v1.1.0` standard? Just use the `reindex` command
+Generated Printer components using `v1.0.0`? And want to use the new `v1.1.0` standard? Just use the `reindex` command:
 
 ```bash
 printer reindex ${PATH}

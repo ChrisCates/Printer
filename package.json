@@ -1,7 +1,7 @@
 {
   "name": "@chriscates/printer",
   "description": "🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": false,
   "preferGlobal": true,
   "repository": "https://github.com/ChrisCates/Printer.git",
@@ -13,7 +13,6 @@
     "build": "tsc && npx ts-node prepend.ts",
     "lint": "eslint src --ext ts",
     "test": "jest",
-    "nyc": "nyc npm test && nyc report --reporter=json > coverage/coverage.json",
     "codecov": "CODECOV_TOKEN='9ad3efda-e66d-4216-a4df-c519c4d65714' npx codecov"
   },
   "husky": {
@@ -39,15 +38,12 @@
     "eslint-plugin-promise": "^5.2.0",
     "husky": "^7.0.4",
     "jest": "^27.4.7",
-    "nyc": "^15.1.0",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   },
   "dependencies": {
     "colors": "^1.4.0",
     "commander": "^8.3.0",
-    "fs-jetpack": "^4.3.0",
-    "leveldown": "^6.1.0",
-    "levelup": "^5.1.1"
+    "fs-jetpack": "^4.3.0"
   }
 }

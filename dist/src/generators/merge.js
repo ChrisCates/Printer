@@ -54,8 +54,9 @@ function mergePrisma() {
                     fileContents = (0, fs_jetpack_1.read)(filePath);
                     mergedFile += '\n';
                     mergedFile += fileContents;
-                    if (process.env.NODE_ENV !== 'test')
+                    if (process.env.NODE_ENV !== 'test') {
                         (0, log_1.Log)("    \u2705  Merged prisma/".concat(file).green);
+                    }
                 }
             }
             (0, fs_jetpack_1.write)(schemaPath, mergedFile);

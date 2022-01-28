@@ -12,7 +12,7 @@ import { generatePrismaSchema } from './generators/schema'
 export const Print = new Command('🖨️ Printer | By Chris Cates')
 
 Print
-  .version('1.2.0')
+  .version('1.2.1')
   .description('🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.')
 
 Print
@@ -66,7 +66,7 @@ Print
   })
 
 Print
-  .command('prisma schema [name]')
+  .command('prisma-schema [name]')
   .description('Generate a new Prisma schema')
   .action(async name => {
     Log('👷  Generating new Prisma Schema'.green)
@@ -74,7 +74,7 @@ Print
   })
 
 Print
-  .command('prisma merge')
+  .command('prisma-merge')
   .description('Merge prisma schemas')
   .action(async name => {
     Log('👷  Generating merged Prisma schema file'.green)
