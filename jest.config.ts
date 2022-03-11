@@ -8,7 +8,7 @@ export default {
     'node_modules',
     'docs',
     'dist',
-    'examples',
+    'example',
     'test/temporary'
   ],
 
@@ -30,7 +30,7 @@ export default {
     'node_modules',
     'docs',
     'dist',
-    'examples',
+    'example',
     'test/temporary',
     'src'
   ]

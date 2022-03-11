@@ -1,0 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EslintrcTemplate = void 0;
+exports.EslintrcTemplate = "module.exports = {\n    env: {\n      browser: true,\n      es2021: true,\n      node: true\n    },\n    extends: [\n      'plugin:react/recommended',\n      'standard',\n      'prettier',\n      'plugin:prettier/recommended'\n    ],\n    parser: '@typescript-eslint/parser',\n    parserOptions: {\n      ecmaFeatures: {\n        jsx: true\n      },\n      ecmaVersion: 'latest',\n      sourceType: 'module'\n    },\n    plugins: ['react', '@typescript-eslint'],\n    rules: {\n      'prettier/prettier': [\n        'warn',\n        {\n          singleQuote: true,\n          semi: false,\n          trailingComma: 'none'\n        }\n      ],\n      'react/react-in-jsx-scope': 0,\n      'no-empty-pattern': 0,\n      'no-unused-vars': 0,\n      'max-statements-per-line': 0,\n      'new-cap': 0\n    }\n  }\n  ";
+//# sourceMappingURL=eslintrc.js.map

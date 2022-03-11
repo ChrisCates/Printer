@@ -1,1 +1,1 @@
-export declare function generateNewProject(path: string): Promise<void>;
+export declare function generateNewProject(path?: string): Promise<void>;

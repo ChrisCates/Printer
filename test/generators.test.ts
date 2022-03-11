@@ -53,6 +53,16 @@ test('Generator - Page', async () => {
   remove(join(process.cwd(), 'pages'))
 })
 
+test('Generator - Page URL', async () => {
+  const expectedPath = join(process.cwd(), 'pages', '[url].tsx')
+
+  await generatePage('[url]')
+  expect(inspect(expectedPath)?.type).toBe('file')
+
+  remove(join(process.cwd(), 'pages'))
+})
+
+
 test('Generator - Slice', async () => {
   const reducersPath = join(process.cwd(), 'redux', 'reducers.json')
   write(reducersPath, '[]')
@@ -97,5 +107,5 @@ test('Generator - Prisma Merge', async () => {
 })
 
 test('Generator - Reindex', async () => {
-  await reindexComponents(join('examples', 'print-sample'))
+  await reindexComponents(join(process.cwd(), 'example'))
 })
