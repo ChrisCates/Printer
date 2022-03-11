@@ -1,7 +1,20 @@
 export function PageTemplate (name: string) {
-  return `export function ${name}() {
-    return (<h1>Hello, from Printer</h1>);
+  return `import { connect } from 'react-redux'
+
+export interface ${name}I {
+
 }
 
-export default ${name};`
+export function ${name}({ }: ${name}I) {
+  return <h1>Welcome to Printer</h1>
+}
+
+export const ${name}State = state => ({
+
+})
+
+export const ${name}Actions = { }
+
+export default connect(${name}State, ${name}Actions)(${name})
+`
 }

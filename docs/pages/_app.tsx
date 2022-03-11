@@ -19,17 +19,15 @@ export class AppComponent extends App<AppInitialProps> {
           <link rel="icon" type="image/png" href="/image/printer.png"/>
           <title>Printer</title>
           <meta name="author" content="Chris Cates"/>
-          <meta name="description" content="A prescriptive, precision based approach to Next.js, Redux, Prisma Development."/>
+          <meta name="description" content="🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development."/>
 
           <meta name="twitter:card" content="summary"/>
           <meta name="twitter:title" content="Printer"/>
-          <meta name="twitter:description" content="A prescriptive, precision based approach to Next.js, Redux, Prisma Development."/>
+          <meta name="twitter:description" content="🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development."/>
           <meta name="twitter:site" content="https://printer.chriscates.ca"/>
-          <meta name="twitter:creator" content="@ninelamdas"/>
-
           <meta property="og:title" content="Printer"/>
           <meta property="og:image" content="https://printer.chriscates.ca/image/og.image.jpg"/>
-          <meta property="og:description" content="A prescriptive, precision based approach to Next.js, Redux, Prisma Development."/>
+          <meta property="og:description" content="🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development."/>
 
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
         </Head>

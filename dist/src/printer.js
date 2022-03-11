@@ -51,17 +51,17 @@ var prisma_1 = require("./generators/prisma");
 var schema_1 = require("./generators/schema");
 exports.Print = new commander_1.Command('🖨️ Printer | By Chris Cates');
 exports.Print
-    .version('1.2.1')
+    .version('1.3.0')
     .description('🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.');
 exports.Print
-    .command('new [path]')
+    .command('new <path>')
     .description('Generate a new Printer project')
     .action(function (path) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 (0, log_1.Log)('👷  Generating new Printer project'.green);
-                return [4 /*yield*/, (0, new_1.generateNewProject)(path)];
+                return [4 /*yield*/, (0, new_1.generateNewProject)(path || '.')];
             case 1:
                 _a.sent();
                 return [2 /*return*/];
@@ -139,7 +139,7 @@ exports.Print
                 return [4 /*yield*/, (0, prisma_1.generatePrisma)()];
             case 1:
                 _a.sent();
-                (0, log_1.Log)('Don\'t forget to run "yarn add prisma" to your project.'.yellow);
+                (0, log_1.Log)('Don\'t forget to run "yarn add prisma @prisma/client"'.yellow);
                 (0, log_1.Log)('Also don\'t forget to update your .env with the DATABASE_URL. Happy printing! 🖨️  🖨️  🖨️'.yellow);
                 return [2 /*return*/];
         }

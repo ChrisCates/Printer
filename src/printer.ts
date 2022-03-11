@@ -12,15 +12,15 @@ import { generatePrismaSchema } from './generators/schema'
 export const Print = new Command('🖨️ Printer | By Chris Cates')
 
 Print
-  .version('1.2.1')
+  .version('1.3.0')
   .description('🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.')
 
 Print
-  .command('new [path]')
+  .command('new <path>')
   .description('Generate a new Printer project')
   .action(async path => {
     Log('👷  Generating new Printer project'.green)
-    await generateNewProject(path)
+    await generateNewProject(path || '.')
   })
 
 Print
@@ -61,7 +61,7 @@ Print
   .action(async () => {
     Log('👷  Generating new Prisma Configuration'.green)
     await generatePrisma()
-    Log('Don\'t forget to run "yarn add prisma" to your project.'.yellow)
+    Log('Don\'t forget to run "yarn add prisma @prisma/client"'.yellow)
     Log('Also don\'t forget to update your .env with the DATABASE_URL. Happy printing! 🖨️  🖨️  🖨️'.yellow)
   })
 

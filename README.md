@@ -3,7 +3,7 @@
 ## A code generation tool for Next.js, Redux, Prisma Development.
 
 ![license](https://img.shields.io/badge/license-AGPLv3-blue.svg)
-![version](https://img.shields.io/badge/version-1.2.0-blue.svg)
+![version](https://img.shields.io/badge/version-1.3.0-blue.svg)
 [![CircleCI](https://circleci.com/gh/ChrisCates/Printer.svg?style=svg)](https://circleci.com/gh/ChrisCates/Printer)
 [![codecov](https://codecov.io/gh/chriscates/printer/branch/master/graph/badge.svg)](https://codecov.io/gh/chriscates/printer)
 
@@ -52,7 +52,7 @@ Full changelog specified in [CHANGELOG](./CHANGELOG.md).
 
 Every front end project involves a lot of boilerplate. Printer reduces the need to spend time writing boilerplate to almost zero. The principle approach of Printer is to automate anything trivial in Next.js development.
 
-**Review the actual generated code in the [sample project](./examples/print-sample).**
+**Review the actual generated code in the [sample project](./example).**
 
 ### Components
 
@@ -105,6 +105,42 @@ printer page hello/world
 
 ```bash
 pages/hello/world.tsx
+```
+
+#### Automatic URL Injections
+
+*Input*
+
+```bash
+printer page [multi]/[url]
+```
+
+*Output*
+
+```bash
+pages/[multi]/[url].tsx
+```
+
+*Generated Code*
+
+```typescript
+import { useRouter } from 'next/router'
+import { connect } from 'react-redux'
+
+export interface urlI {}
+
+export function url({}: urlI) {
+  const router = useRouter()
+  const { multi, url } = router.query
+
+  return <h1>Welcome to Printer</h1>
+}
+
+export const urlState = (state) => ({})
+
+export const urlActions = {}
+
+export default connect(urlState, urlActions)(url)
 ```
 
 ## Comments and Feedback

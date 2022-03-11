@@ -49,9 +49,13 @@ var package_1 = require("../templates/new/package");
 var redux_wrapper_1 = require("../templates/new/redux.wrapper");
 var redux_reducer_1 = require("../templates/new/redux.reducer");
 var tsconfig_1 = require("../templates/new/tsconfig");
+var precommit_1 = require("../templates/new/precommit");
+var eslintrc_1 = require("../templates/new/eslintrc");
+var theme_1 = require("../templates/new/theme");
 function generateNewProject(path) {
+    if (path === void 0) { path = '.'; }
     return __awaiter(this, void 0, void 0, function () {
-        var appPath, documentPath, babelPath, gitignorePath, gitkeepPath, gitkeepPublicPath, indexPath, packagePath, wrapperPath, reducerPath, reducersPath, tsconfigPath;
+        var appPath, documentPath, babelPath, gitignorePath, gitkeepPath, gitkeepPublicPath, indexPath, themePath, packagePath, wrapperPath, reducerPath, reducersPath, tsconfigPath, precommitPath, eslintrcPath;
         return __generator(this, function (_a) {
             appPath = (0, path_1.join)(process.cwd(), path, 'pages', '_app.tsx');
             documentPath = (0, path_1.join)(process.cwd(), path, 'pages', '_document.tsx');
@@ -60,11 +64,14 @@ function generateNewProject(path) {
             gitkeepPath = (0, path_1.join)(process.cwd(), path, '.gitkeep');
             gitkeepPublicPath = (0, path_1.join)(process.cwd(), path, 'public', '.gitkeep');
             indexPath = (0, path_1.join)(process.cwd(), path, 'pages', 'index.tsx');
+            themePath = (0, path_1.join)(process.cwd(), path, 'components', 'theme.tsx');
             packagePath = (0, path_1.join)(process.cwd(), path, 'package.json');
             wrapperPath = (0, path_1.join)(process.cwd(), path, 'redux', 'redux.wrapper.tsx');
             reducerPath = (0, path_1.join)(process.cwd(), path, 'redux', 'redux.reducer.tsx');
             reducersPath = (0, path_1.join)(process.cwd(), path, 'redux', 'reducers.json');
             tsconfigPath = (0, path_1.join)(process.cwd(), path, 'tsconfig.json');
+            precommitPath = (0, path_1.join)(process.cwd(), path, '.husky', 'pre-commit');
+            eslintrcPath = (0, path_1.join)(process.cwd(), path, '.eslintrc.js');
             (0, fs_jetpack_1.write)(babelPath, babel_1.BabelTemplate);
             (0, log_1.Log)('    ✅  Created .babelrc'.green);
             (0, fs_jetpack_1.write)(gitignorePath, gitignore_1.GitIgnoreTemplate);
@@ -79,6 +86,8 @@ function generateNewProject(path) {
             (0, log_1.Log)('    ✅  Created pages/_document.tsx'.green);
             (0, fs_jetpack_1.write)(indexPath, index_1.IndexTemplate);
             (0, log_1.Log)('    ✅  Created pages/index.tsx'.green);
+            (0, fs_jetpack_1.write)(themePath, theme_1.ThemeTemplate);
+            (0, log_1.Log)('    ✅  Created components/theme.tsx'.green);
             (0, fs_jetpack_1.write)(packagePath, package_1.PackageTemplate);
             (0, log_1.Log)('    ✅  Created package.json'.green);
             (0, fs_jetpack_1.write)(wrapperPath, redux_wrapper_1.ReduxWrapperTemplate);
@@ -89,6 +98,10 @@ function generateNewProject(path) {
             (0, log_1.Log)('    ✅  Created redux/reducers.json'.green);
             (0, fs_jetpack_1.write)(tsconfigPath, tsconfig_1.TSConfigTemplate);
             (0, log_1.Log)('    ✅  Created tsconfig.json'.green);
+            (0, fs_jetpack_1.write)(precommitPath, precommit_1.PrecommitTemplate);
+            (0, log_1.Log)('    ✅  Created .husky/pre-commit'.green);
+            (0, fs_jetpack_1.write)(eslintrcPath, eslintrc_1.EslintrcTemplate);
+            (0, log_1.Log)('    ✅  Created .eslintrc.js'.green);
             return [2 /*return*/];
         });
     });

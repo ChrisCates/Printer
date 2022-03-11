@@ -1,5 +1,17 @@
 # 🖨️ Printer | Changelog
 
+## 1.3.0
+
+- Added multi url injectable pages
+
+- Added `pre-commit` hooks
+
+- Added `.eslintrc.js` configuration
+
+    - Includes `standard` lint enforcement
+
+    - Includes `prettier` code style enforcement
+
 ## 1.2.1
 
 - Fixed `prisma` auxillary commands
