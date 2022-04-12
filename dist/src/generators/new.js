@@ -52,10 +52,11 @@ var tsconfig_1 = require("../templates/new/tsconfig");
 var precommit_1 = require("../templates/new/precommit");
 var eslintrc_1 = require("../templates/new/eslintrc");
 var theme_1 = require("../templates/new/theme");
+var util_session_1 = require("../templates/new/util.session");
 function generateNewProject(path) {
     if (path === void 0) { path = '.'; }
     return __awaiter(this, void 0, void 0, function () {
-        var appPath, documentPath, babelPath, gitignorePath, gitkeepPath, gitkeepPublicPath, indexPath, themePath, packagePath, wrapperPath, reducerPath, reducersPath, tsconfigPath, precommitPath, eslintrcPath;
+        var appPath, documentPath, babelPath, gitignorePath, gitkeepPath, gitkeepPublicPath, indexPath, themePath, utilSessionPath, packagePath, wrapperPath, reducerPath, reducersPath, tsconfigPath, precommitPath, eslintrcPath;
         return __generator(this, function (_a) {
             appPath = (0, path_1.join)(process.cwd(), path, 'pages', '_app.tsx');
             documentPath = (0, path_1.join)(process.cwd(), path, 'pages', '_document.tsx');
@@ -65,6 +66,7 @@ function generateNewProject(path) {
             gitkeepPublicPath = (0, path_1.join)(process.cwd(), path, 'public', '.gitkeep');
             indexPath = (0, path_1.join)(process.cwd(), path, 'pages', 'index.tsx');
             themePath = (0, path_1.join)(process.cwd(), path, 'components', 'theme.tsx');
+            utilSessionPath = (0, path_1.join)(process.cwd(), path, 'util', 'util.session.ts');
             packagePath = (0, path_1.join)(process.cwd(), path, 'package.json');
             wrapperPath = (0, path_1.join)(process.cwd(), path, 'redux', 'redux.wrapper.tsx');
             reducerPath = (0, path_1.join)(process.cwd(), path, 'redux', 'redux.reducer.tsx');
@@ -88,6 +90,8 @@ function generateNewProject(path) {
             (0, log_1.Log)('    ✅  Created pages/index.tsx'.green);
             (0, fs_jetpack_1.write)(themePath, theme_1.ThemeTemplate);
             (0, log_1.Log)('    ✅  Created components/theme.tsx'.green);
+            (0, fs_jetpack_1.write)(utilSessionPath, util_session_1.UtilSessionTemplate);
+            (0, log_1.Log)('    ✅  Created util/util.session.ts'.green);
             (0, fs_jetpack_1.write)(packagePath, package_1.PackageTemplate);
             (0, log_1.Log)('    ✅  Created package.json'.green);
             (0, fs_jetpack_1.write)(wrapperPath, redux_wrapper_1.ReduxWrapperTemplate);

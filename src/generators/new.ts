@@ -14,6 +14,7 @@ import { TSConfigTemplate } from '../templates/new/tsconfig'
 import { PrecommitTemplate } from '../templates/new/precommit'
 import { EslintrcTemplate } from '../templates/new/eslintrc'
 import { ThemeTemplate } from '../templates/new/theme'
+import { UtilSessionTemplate } from '../templates/new/util.session'
 
 export async function generateNewProject (path: string = '.') {
   const appPath = join(process.cwd(), path, 'pages', '_app.tsx')
@@ -24,6 +25,7 @@ export async function generateNewProject (path: string = '.') {
   const gitkeepPublicPath = join(process.cwd(), path, 'public', '.gitkeep')
   const indexPath = join(process.cwd(), path, 'pages', 'index.tsx')
   const themePath = join(process.cwd(), path, 'components', 'theme.tsx')
+  const utilSessionPath = join(process.cwd(), path, 'util', 'util.session.ts')
   const packagePath = join(process.cwd(), path, 'package.json')
   const wrapperPath = join(process.cwd(), path, 'redux', 'redux.wrapper.tsx')
   const reducerPath = join(process.cwd(), path, 'redux', 'redux.reducer.tsx')
@@ -48,6 +50,8 @@ export async function generateNewProject (path: string = '.') {
   Log('    ✅  Created pages/index.tsx'.green)
   write(themePath, ThemeTemplate)
   Log('    ✅  Created components/theme.tsx'.green)
+  write(utilSessionPath, UtilSessionTemplate)
+  Log('    ✅  Created util/util.session.ts'.green)
   write(packagePath, PackageTemplate)
   Log('    ✅  Created package.json'.green)
   write(wrapperPath, ReduxWrapperTemplate)

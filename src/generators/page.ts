@@ -15,15 +15,17 @@ export async function generatePage (path: string) {
   if (path.match(/\[(.*?)\]/g)) {
     urls = path.match(/\[(.*?)\]/g) as string[]
     urls = urls.map(url => url.replace(/\[/g, '').replace(/\]/g, ''))
+    name = name[0].toUpperCase() + name.substring(1)
     pageTemplate = PageUrlTemplate(name, urls)
-    name = name.replace(/\[/g, '')
-    name = name.replace(/\]/g, '')
   } else if (fileName.indexOf('.') !== -1) {
     name = fileName.split('.').map(word => word[0].toUpperCase() + word.substring(1)).join('')
+    pageTemplate = PageTemplate(name)
   } else if (fileName.indexOf('-') !== -1) {
     name = fileName.split('-').map(word => word[0].toUpperCase() + word.substring(1)).join('')
+    pageTemplate = PageTemplate(name)
   } else {
     name = name[0].toUpperCase() + name.substring(1)
+    pageTemplate = PageTemplate(name)
   }
 
   const pagePath = join(process.cwd(), 'pages', `${path}.tsx`)

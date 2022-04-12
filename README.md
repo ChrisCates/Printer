@@ -1,9 +1,9 @@
 # 🖨️ Printer
 
-## A code generation tool for Next.js, Redux, Prisma Development.
+## A code generation tool for Next.js, Redux, Prisma Development
 
 ![license](https://img.shields.io/badge/license-AGPLv3-blue.svg)
-![version](https://img.shields.io/badge/version-1.3.0-blue.svg)
+![version](https://img.shields.io/badge/version-1.4.0-blue.svg)
 [![CircleCI](https://circleci.com/gh/ChrisCates/Printer.svg?style=svg)](https://circleci.com/gh/ChrisCates/Printer)
 [![codecov](https://codecov.io/gh/chriscates/printer/branch/master/graph/badge.svg)](https://codecov.io/gh/chriscates/printer)
 
@@ -121,26 +121,18 @@ printer page [multi]/[url]
 pages/[multi]/[url].tsx
 ```
 
-*Generated Code*
+#### API Router Scaffolding
 
-```typescript
-import { useRouter } from 'next/router'
-import { connect } from 'react-redux'
+*Input*
 
-export interface urlI {}
+```bash
+printer api [path]
+```
 
-export function url({}: urlI) {
-  const router = useRouter()
-  const { multi, url } = router.query
+*Output*
 
-  return <h1>Welcome to Printer</h1>
-}
-
-export const urlState = (state) => ({})
-
-export const urlActions = {}
-
-export default connect(urlState, urlActions)(url)
+```bash
+pages/api/[path].tsx
 ```
 
 ## Comments and Feedback

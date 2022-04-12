@@ -87,6 +87,24 @@ Running this command will generate the following:
 pages/$PATH.tsx
 ```
 
+## Creating a new API route
+
+Specify the name of the new page you want to create by running:
+
+```bash
+printer api $PATH
+
+# Example
+printer api hello/world
+```
+
+Running this command will generate the following:
+
+```bash
+pages/api/$PATH.tsx
+```
+
+
 ## Adding Prisma to Printer
 
 Run this command to add Prisma to your Printer project:
@@ -101,31 +119,6 @@ Running this command will generate the following:
 prisma/prisma.tsx
 prisma/schema.prisma
 .env
-```
-
-## Adding a new Prisma Schema
-
-Run this schema to add a new Prisma Schema to your Printer project:
-
-```bash
-printer prisma-schema $NAME
-
-# Example
-printer prisma-schema HelloWorld
-```
-
-Running this command will generate the following:
-
-```bash
-prisma/$NAME.prisma
-```
-
-## Merging Prisma Schema
-
-Run this command to merge all schemas into `schema.prisma`.
-
-```bash
-printer prisma-merge
 ```
 
 ## Reindexing components

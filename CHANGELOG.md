@@ -1,5 +1,15 @@
 # 🖨️ Printer | Changelog
 
+## 1.4.0
+
+- Fix page namespace being lowercase (needed to be Pascal Case)
+
+- Added API scaffolding and `iron-session` scaffolding
+
+- Added API routing command `printer api [path]`
+
+- Removed redundant Prisma `schema` and `merge` commands
+
 ## 1.3.0
 
 - Added multi url injectable pages
@@ -8,9 +18,9 @@
 
 - Added `.eslintrc.js` configuration
 
-    - Includes `standard` lint enforcement
+  - Includes `standard` lint enforcement
 
-    - Includes `prettier` code style enforcement
+  - Includes `prettier` code style enforcement
 
 ## 1.2.1
 
