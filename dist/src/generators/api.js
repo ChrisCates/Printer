@@ -36,45 +36,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generatePage = void 0;
+exports.generateApi = void 0;
 var path_1 = require("path");
 var fs_jetpack_1 = require("fs-jetpack");
 var log_1 = require("../helpers/log");
-var page_1 = require("../templates/page");
-var page_url_1 = require("../templates/page.url");
-function generatePage(path) {
+var api_1 = require("../templates/api");
+function generateApi(path) {
     return __awaiter(this, void 0, void 0, function () {
-        var pathArray, fileName, urls, name, pageTemplate, pagePath;
+        var pathArray, fileName, name, apiTemplate, apiPath;
         return __generator(this, function (_a) {
             pathArray = path.split('/');
             fileName = pathArray[pathArray.length - 1];
-            urls = [];
             name = fileName.replace(/[^\w\s]/gi, '');
-            pageTemplate = (0, page_1.PageTemplate)(name);
-            if (path.match(/\[(.*?)\]/g)) {
-                urls = path.match(/\[(.*?)\]/g);
-                urls = urls.map(function (url) { return url.replace(/\[/g, '').replace(/\]/g, ''); });
-                name = name[0].toUpperCase() + name.substring(1);
-                pageTemplate = (0, page_url_1.PageUrlTemplate)(name, urls);
-            }
-            else if (fileName.indexOf('.') !== -1) {
+            if (fileName.indexOf('.') !== -1) {
                 name = fileName.split('.').map(function (word) { return word[0].toUpperCase() + word.substring(1); }).join('');
-                pageTemplate = (0, page_1.PageTemplate)(name);
             }
             else if (fileName.indexOf('-') !== -1) {
                 name = fileName.split('-').map(function (word) { return word[0].toUpperCase() + word.substring(1); }).join('');
-                pageTemplate = (0, page_1.PageTemplate)(name);
             }
             else {
                 name = name[0].toUpperCase() + name.substring(1);
-                pageTemplate = (0, page_1.PageTemplate)(name);
             }
-            pagePath = (0, path_1.join)(process.cwd(), 'pages', "".concat(path, ".tsx"));
-            (0, fs_jetpack_1.write)(pagePath, pageTemplate);
-            (0, log_1.Log)("    \u2705  Created pages/".concat(path, ".tsx").green);
+            apiTemplate = (0, api_1.ApiTemplate)(name);
+            apiPath = (0, path_1.join)(process.cwd(), 'pages', 'api', "".concat(path, ".tsx"));
+            (0, fs_jetpack_1.write)(apiPath, apiTemplate);
+            (0, log_1.Log)("    \u2705  Created pages/api/".concat(path, ".tsx").green);
             return [2 /*return*/];
         });
     });
 }
-exports.generatePage = generatePage;
-//# sourceMappingURL=page.js.map
+exports.generateApi = generateApi;
+//# sourceMappingURL=api.js.map

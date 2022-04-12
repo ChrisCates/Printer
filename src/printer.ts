@@ -7,12 +7,12 @@ import { reindexComponents } from './generators/reindex'
 import { generateSlice } from './generators/slice'
 import { generatePage } from './generators/page'
 import { generatePrisma } from './generators/prisma'
-import { generatePrismaSchema } from './generators/schema'
+import { generateApi } from './generators/api'
 
 export const Print = new Command('🖨️ Printer | By Chris Cates')
 
 Print
-  .version('1.3.0')
+  .version('1.4.0')
   .description('🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.')
 
 Print
@@ -56,6 +56,14 @@ Print
   })
 
 Print
+  .command('api [path]')
+  .description('Generate a new Printer API route')
+  .action(async path => {
+    Log('👷  Generating new Printer API route'.green)
+    await generateApi(path)
+  })
+
+Print
   .command('prisma')
   .description('Add prisma to a Printer project')
   .action(async () => {
@@ -63,22 +71,6 @@ Print
     await generatePrisma()
     Log('Don\'t forget to run "yarn add prisma @prisma/client"'.yellow)
     Log('Also don\'t forget to update your .env with the DATABASE_URL. Happy printing! 🖨️  🖨️  🖨️'.yellow)
-  })
-
-Print
-  .command('prisma-schema [name]')
-  .description('Generate a new Prisma schema')
-  .action(async name => {
-    Log('👷  Generating new Prisma Schema'.green)
-    await generatePrismaSchema(name)
-  })
-
-Print
-  .command('prisma-merge')
-  .description('Merge prisma schemas')
-  .action(async name => {
-    Log('👷  Generating merged Prisma schema file'.green)
-    await generatePrismaSchema(name)
   })
 
 if (process.env.NODE_ENV !== 'test') {
