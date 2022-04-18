@@ -12,11 +12,11 @@ import { generateApi } from './generators/api'
 export const Print = new Command('🖨️ Printer | By Chris Cates')
 
 Print
-  .version('1.4.0')
+  .version('1.4.1')
   .description('🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.')
 
 Print
-  .command('new <path>')
+  .command('new [path]')
   .description('Generate a new Printer project')
   .action(async path => {
     Log('👷  Generating new Printer project'.green)
@@ -24,7 +24,7 @@ Print
   })
 
 Print
-  .command('component [path]')
+  .command('component <path>')
   .description('Generate a new Printer component')
   .action(async path => {
     Log(`👷  Generating new Printer component ${path}`.green)
@@ -32,7 +32,7 @@ Print
   })
 
 Print
-  .command('reindex [path]')
+  .command('reindex <path>')
   .description('Reindex all Printer components in the following path')
   .action(async path => {
     Log(`🔧  Reindexing all Printer components in the ${path} folder`.green)
@@ -40,7 +40,7 @@ Print
   })
 
 Print
-  .command('slice [name]')
+  .command('slice <name>')
   .description('Generate a new Printer slice')
   .action(async name => {
     Log(`👷  Generating new Printer slice ${name}`.green)
@@ -48,7 +48,7 @@ Print
   })
 
 Print
-  .command('page [path]')
+  .command('page <path>')
   .description('Generate a new Printer page')
   .action(async path => {
     Log('👷  Generating new Printer page'.green)
@@ -56,7 +56,7 @@ Print
   })
 
 Print
-  .command('api [path]')
+  .command('api <path>')
   .description('Generate a new Printer API route')
   .action(async path => {
     Log('👷  Generating new Printer API route'.green)
