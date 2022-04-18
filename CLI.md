@@ -104,7 +104,6 @@ Running this command will generate the following:
 pages/api/$PATH.tsx
 ```
 
-
 ## Adding Prisma to Printer
 
 Run this command to add Prisma to your Printer project:

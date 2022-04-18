@@ -1,5 +1,9 @@
 # 🖨️ Printer | Changelog
 
+## 1.4.1
+
+- Updated `util/util.session.ts` to just `util/session.ts`. Imports look nicer as just `util/session`
+
 ## 1.4.0
 
 - Fix page namespace being lowercase (needed to be Pascal Case)

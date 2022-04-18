@@ -66,7 +66,7 @@ function generateNewProject(path) {
             gitkeepPublicPath = (0, path_1.join)(process.cwd(), path, 'public', '.gitkeep');
             indexPath = (0, path_1.join)(process.cwd(), path, 'pages', 'index.tsx');
             themePath = (0, path_1.join)(process.cwd(), path, 'components', 'theme.tsx');
-            utilSessionPath = (0, path_1.join)(process.cwd(), path, 'util', 'util.session.ts');
+            utilSessionPath = (0, path_1.join)(process.cwd(), path, 'util', 'session.ts');
             packagePath = (0, path_1.join)(process.cwd(), path, 'package.json');
             wrapperPath = (0, path_1.join)(process.cwd(), path, 'redux', 'redux.wrapper.tsx');
             reducerPath = (0, path_1.join)(process.cwd(), path, 'redux', 'redux.reducer.tsx');

@@ -51,10 +51,10 @@ var prisma_1 = require("./generators/prisma");
 var api_1 = require("./generators/api");
 exports.Print = new commander_1.Command('🖨️ Printer | By Chris Cates');
 exports.Print
-    .version('1.4.0')
+    .version('1.4.1')
     .description('🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.');
 exports.Print
-    .command('new <path>')
+    .command('new [path]')
     .description('Generate a new Printer project')
     .action(function (path) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
@@ -69,7 +69,7 @@ exports.Print
     });
 }); });
 exports.Print
-    .command('component [path]')
+    .command('component <path>')
     .description('Generate a new Printer component')
     .action(function (path) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
@@ -84,7 +84,7 @@ exports.Print
     });
 }); });
 exports.Print
-    .command('reindex [path]')
+    .command('reindex <path>')
     .description('Reindex all Printer components in the following path')
     .action(function (path) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
@@ -99,7 +99,7 @@ exports.Print
     });
 }); });
 exports.Print
-    .command('slice [name]')
+    .command('slice <name>')
     .description('Generate a new Printer slice')
     .action(function (name) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
@@ -114,7 +114,7 @@ exports.Print
     });
 }); });
 exports.Print
-    .command('page [path]')
+    .command('page <path>')
     .description('Generate a new Printer page')
     .action(function (path) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
@@ -129,7 +129,7 @@ exports.Print
     });
 }); });
 exports.Print
-    .command('api [path]')
+    .command('api <path>')
     .description('Generate a new Printer API route')
     .action(function (path) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
