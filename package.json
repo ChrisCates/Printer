@@ -1,7 +1,7 @@
 {
   "name": "@chriscates/printer",
   "description": "🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "private": false,
   "preferGlobal": true,
   "repository": "https://github.com/ChrisCates/Printer.git",

@@ -15,6 +15,9 @@ import { PrecommitTemplate } from '../templates/new/precommit'
 import { EslintrcTemplate } from '../templates/new/eslintrc'
 import { ThemeTemplate } from '../templates/new/theme'
 import { UtilSessionTemplate } from '../templates/new/util.session'
+import { ResetTemplate } from '../templates/new/reset.css'
+import { FontsTemplate } from '../templates/new/fonts.css'
+import { PrinterTemplate } from '../templates/new/printer.css'
 
 export async function generateNewProject (path: string = '.') {
   const appPath = join(process.cwd(), path, 'pages', '_app.tsx')
@@ -26,9 +29,12 @@ export async function generateNewProject (path: string = '.') {
   const indexPath = join(process.cwd(), path, 'pages', 'index.tsx')
   const themePath = join(process.cwd(), path, 'components', 'theme.tsx')
   const utilSessionPath = join(process.cwd(), path, 'util', 'session.ts')
+  const resetCssPath = join(process.cwd(), path, 'public', 'assets', 'css', 'reset.css')
+  const fontsCssPath = join(process.cwd(), path, 'public', 'assets', 'css', 'fonts.css')
+  const printerCssPath = join(process.cwd(), path, 'public', 'assets', 'css', 'printer.css')
   const packagePath = join(process.cwd(), path, 'package.json')
-  const wrapperPath = join(process.cwd(), path, 'redux', 'redux.wrapper.tsx')
-  const reducerPath = join(process.cwd(), path, 'redux', 'redux.reducer.tsx')
+  const wrapperPath = join(process.cwd(), path, 'redux', 'wrapper.tsx')
+  const reducerPath = join(process.cwd(), path, 'redux', 'reducer.tsx')
   const reducersPath = join(process.cwd(), path, 'redux', 'reducers.json')
   const tsconfigPath = join(process.cwd(), path, 'tsconfig.json')
   const precommitPath = join(process.cwd(), path, '.husky', 'pre-commit')
@@ -51,13 +57,19 @@ export async function generateNewProject (path: string = '.') {
   write(themePath, ThemeTemplate)
   Log('    ✅  Created components/theme.tsx'.green)
   write(utilSessionPath, UtilSessionTemplate)
-  Log('    ✅  Created util/util.session.ts'.green)
+  Log('    ✅  Created util/session.ts'.green)
+  write(resetCssPath, ResetTemplate)
+  Log('    ✅  Created public/assets/css/reset.css'.green)
+  write(fontsCssPath, FontsTemplate)
+  Log('    ✅  Created public/assets/css/fonts.css'.green)
+  write(printerCssPath, PrinterTemplate)
+  Log('    ✅  Created public/assets/css/printer.css'.green)
   write(packagePath, PackageTemplate)
   Log('    ✅  Created package.json'.green)
   write(wrapperPath, ReduxWrapperTemplate)
-  Log('    ✅  Created redux/redux.wrapper.tsx'.green)
+  Log('    ✅  Created redux/wrapper.tsx'.green)
   write(reducerPath, ReduxReducerTemplate)
-  Log('    ✅  Created redux/redux.reducer.tsx'.green)
+  Log('    ✅  Created redux/reducer.tsx'.green)
   write(reducersPath, '[]')
   Log('    ✅  Created redux/reducers.json'.green)
   write(tsconfigPath, TSConfigTemplate)

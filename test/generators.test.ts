@@ -23,8 +23,8 @@ test('Generator - New Project', async () => {
   expect(inspect(join(path, 'pages', 'index.tsx'))?.type).toBe('file')
   expect(inspect(join(path, 'public', '.gitkeep'))?.type).toBe('file')
   expect(inspect(join(path, 'tsconfig.json'))?.type).toBe('file')
-  expect(inspect(join(path, 'redux', 'redux.wrapper.tsx'))?.type).toBe('file')
-  expect(inspect(join(path, 'redux', 'redux.reducer.tsx'))?.type).toBe('file')
+  expect(inspect(join(path, 'redux', 'wrapper.tsx'))?.type).toBe('file')
+  expect(inspect(join(path, 'redux', 'reducer.tsx'))?.type).toBe('file')
   expect(inspect(join(path, 'redux', 'reducers.json'))?.type).toBe('file')
 
   remove(path)
@@ -74,7 +74,7 @@ test('Generator - Slice', async () => {
   const reducersPath = join(process.cwd(), 'redux', 'reducers.json')
   write(reducersPath, '[]')
 
-  const expectedPath = join(process.cwd(), 'redux', 'slice', 'slice.test.tsx')
+  const expectedPath = join(process.cwd(), 'redux', 'slice', 'test.tsx')
 
   await generateSlice('test')
   expect(inspect(expectedPath)?.type).toBe('file')

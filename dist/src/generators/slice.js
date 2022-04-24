@@ -46,8 +46,8 @@ function generateSlice(name) {
     return __awaiter(this, void 0, void 0, function () {
         var slicePath, reducerPath, reducersPath, reducers;
         return __generator(this, function (_a) {
-            slicePath = (0, path_1.join)(process.cwd(), 'redux', 'slice', "slice.".concat(name, ".tsx"));
-            reducerPath = (0, path_1.join)(process.cwd(), 'redux', 'redux.reducer.tsx');
+            slicePath = (0, path_1.join)(process.cwd(), 'redux', 'slice', "".concat(name, ".tsx"));
+            reducerPath = (0, path_1.join)(process.cwd(), 'redux', 'reducer.tsx');
             reducersPath = (0, path_1.join)(process.cwd(), 'redux', 'reducers.json');
             reducers = [];
             try {
@@ -60,9 +60,9 @@ function generateSlice(name) {
                 process.exit();
             }
             (0, fs_jetpack_1.write)(slicePath, (0, slice_1.SliceTemplate)(name));
-            (0, log_1.Log)("    \u2705  Created redux/slice.".concat(name, ".tsx").green);
+            (0, log_1.Log)("    \u2705  Created redux/slice/".concat(name, ".tsx").green);
             (0, fs_jetpack_1.write)(reducerPath, (0, redux_reducer_1.ReduxReducerTemplate)(reducers));
-            (0, log_1.Log)('    ✅  Updated redux/redux.reducer.tsx'.green);
+            (0, log_1.Log)('    ✅  Updated redux/reducer.tsx'.green);
             return [2 /*return*/];
         });
     });

@@ -1,5 +1,5 @@
 export const AppTemplate = `import App, { AppContext, AppInitialProps } from 'next/app';
-import { wrapper } from '../redux/redux.wrapper';
+import { wrapper } from 'redux/wrapper';
 
 export class AppComponent extends App<AppInitialProps> {
   public static getInitialProps = async ({ Component, ctx }: AppContext) => {

@@ -51,7 +51,7 @@ var prisma_1 = require("./generators/prisma");
 var api_1 = require("./generators/api");
 exports.Print = new commander_1.Command('🖨️ Printer | By Chris Cates');
 exports.Print
-    .version('1.4.1')
+    .version('1.4.2')
     .description('🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.');
 exports.Print
     .command('new [path]')

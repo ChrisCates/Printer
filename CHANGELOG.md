@@ -1,5 +1,15 @@
 # 🖨️ Printer | Changelog
 
+## 1.4.2
+
+- Updated default `_document.tsx` template
+
+- Added `/public/assets/css` files and are auto injected into `_document.tsx`
+
+- Updated `redux` namespaces
+
+- Added more comprehensive and interactive documentation
+
 ## 1.4.1
 
 - Updated `util/util.session.ts` to just `util/session.ts`. Imports look nicer as just `util/session`

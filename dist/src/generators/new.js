@@ -53,10 +53,13 @@ var precommit_1 = require("../templates/new/precommit");
 var eslintrc_1 = require("../templates/new/eslintrc");
 var theme_1 = require("../templates/new/theme");
 var util_session_1 = require("../templates/new/util.session");
+var reset_css_1 = require("../templates/new/reset.css");
+var fonts_css_1 = require("../templates/new/fonts.css");
+var printer_css_1 = require("../templates/new/printer.css");
 function generateNewProject(path) {
     if (path === void 0) { path = '.'; }
     return __awaiter(this, void 0, void 0, function () {
-        var appPath, documentPath, babelPath, gitignorePath, gitkeepPath, gitkeepPublicPath, indexPath, themePath, utilSessionPath, packagePath, wrapperPath, reducerPath, reducersPath, tsconfigPath, precommitPath, eslintrcPath;
+        var appPath, documentPath, babelPath, gitignorePath, gitkeepPath, gitkeepPublicPath, indexPath, themePath, utilSessionPath, resetCssPath, fontsCssPath, printerCssPath, packagePath, wrapperPath, reducerPath, reducersPath, tsconfigPath, precommitPath, eslintrcPath;
         return __generator(this, function (_a) {
             appPath = (0, path_1.join)(process.cwd(), path, 'pages', '_app.tsx');
             documentPath = (0, path_1.join)(process.cwd(), path, 'pages', '_document.tsx');
@@ -67,9 +70,12 @@ function generateNewProject(path) {
             indexPath = (0, path_1.join)(process.cwd(), path, 'pages', 'index.tsx');
             themePath = (0, path_1.join)(process.cwd(), path, 'components', 'theme.tsx');
             utilSessionPath = (0, path_1.join)(process.cwd(), path, 'util', 'session.ts');
+            resetCssPath = (0, path_1.join)(process.cwd(), path, 'public', 'assets', 'css', 'reset.css');
+            fontsCssPath = (0, path_1.join)(process.cwd(), path, 'public', 'assets', 'css', 'fonts.css');
+            printerCssPath = (0, path_1.join)(process.cwd(), path, 'public', 'assets', 'css', 'printer.css');
             packagePath = (0, path_1.join)(process.cwd(), path, 'package.json');
-            wrapperPath = (0, path_1.join)(process.cwd(), path, 'redux', 'redux.wrapper.tsx');
-            reducerPath = (0, path_1.join)(process.cwd(), path, 'redux', 'redux.reducer.tsx');
+            wrapperPath = (0, path_1.join)(process.cwd(), path, 'redux', 'wrapper.tsx');
+            reducerPath = (0, path_1.join)(process.cwd(), path, 'redux', 'reducer.tsx');
             reducersPath = (0, path_1.join)(process.cwd(), path, 'redux', 'reducers.json');
             tsconfigPath = (0, path_1.join)(process.cwd(), path, 'tsconfig.json');
             precommitPath = (0, path_1.join)(process.cwd(), path, '.husky', 'pre-commit');
@@ -91,13 +97,19 @@ function generateNewProject(path) {
             (0, fs_jetpack_1.write)(themePath, theme_1.ThemeTemplate);
             (0, log_1.Log)('    ✅  Created components/theme.tsx'.green);
             (0, fs_jetpack_1.write)(utilSessionPath, util_session_1.UtilSessionTemplate);
-            (0, log_1.Log)('    ✅  Created util/util.session.ts'.green);
+            (0, log_1.Log)('    ✅  Created util/session.ts'.green);
+            (0, fs_jetpack_1.write)(resetCssPath, reset_css_1.ResetTemplate);
+            (0, log_1.Log)('    ✅  Created public/assets/css/reset.css'.green);
+            (0, fs_jetpack_1.write)(fontsCssPath, fonts_css_1.FontsTemplate);
+            (0, log_1.Log)('    ✅  Created public/assets/css/fonts.css'.green);
+            (0, fs_jetpack_1.write)(printerCssPath, printer_css_1.PrinterTemplate);
+            (0, log_1.Log)('    ✅  Created public/assets/css/printer.css'.green);
             (0, fs_jetpack_1.write)(packagePath, package_1.PackageTemplate);
             (0, log_1.Log)('    ✅  Created package.json'.green);
             (0, fs_jetpack_1.write)(wrapperPath, redux_wrapper_1.ReduxWrapperTemplate);
-            (0, log_1.Log)('    ✅  Created redux/redux.wrapper.tsx'.green);
+            (0, log_1.Log)('    ✅  Created redux/wrapper.tsx'.green);
             (0, fs_jetpack_1.write)(reducerPath, redux_reducer_1.ReduxReducerTemplate);
-            (0, log_1.Log)('    ✅  Created redux/redux.reducer.tsx'.green);
+            (0, log_1.Log)('    ✅  Created redux/reducer.tsx'.green);
             (0, fs_jetpack_1.write)(reducersPath, '[]');
             (0, log_1.Log)('    ✅  Created redux/reducers.json'.green);
             (0, fs_jetpack_1.write)(tsconfigPath, tsconfig_1.TSConfigTemplate);
