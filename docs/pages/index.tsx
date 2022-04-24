@@ -1,11 +1,15 @@
-import { IndexTitle } from "../components/index/index.title/index.title.connect"
-import { IndexOverview } from "../components/index/index.overview/index.overview.connect"
+import { Header } from 'components/shared/header'
+import { Footer } from 'components/shared/footer'
+import { Title } from 'components/index/title'
+import { Info } from 'components/index/info'
 
 export default function Index() {
-    return(
-        <>
-            <IndexTitle/>
-            <IndexOverview/>
-        </>
-    )
+  return (
+    <>
+      <Header />
+      <Title />
+      <Info />
+      <Footer />
+    </>
+  )
 }

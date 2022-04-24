@@ -6,8 +6,8 @@ import { SliceTemplate } from '../templates/slice/slice'
 import { ReduxReducerTemplate } from '../templates/slice/redux.reducer'
 
 export async function generateSlice (name: string) {
-  const slicePath = join(process.cwd(), 'redux', 'slice', `slice.${name}.tsx`)
-  const reducerPath = join(process.cwd(), 'redux', 'redux.reducer.tsx')
+  const slicePath = join(process.cwd(), 'redux', 'slice', `${name}.tsx`)
+  const reducerPath = join(process.cwd(), 'redux', 'reducer.tsx')
   const reducersPath = join(process.cwd(), 'redux', 'reducers.json')
   let reducers = []
 
@@ -21,7 +21,7 @@ export async function generateSlice (name: string) {
   }
 
   write(slicePath, SliceTemplate(name))
-  Log(`    ✅  Created redux/slice.${name}.tsx`.green)
+  Log(`    ✅  Created redux/slice/${name}.tsx`.green)
   write(reducerPath, ReduxReducerTemplate(reducers))
-  Log('    ✅  Updated redux/redux.reducer.tsx'.green)
+  Log('    ✅  Updated redux/reducer.tsx'.green)
 }

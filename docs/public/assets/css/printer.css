@@ -1,0 +1,17 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Animation rules */
+* {
+  transition: all 0.1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+body {
+  font-family: Montserrat;
+  color: white;
+  background: hsla(0, 0%, 19%, 1);
+  letter-spacing: 0.5px;
+}

@@ -12,7 +12,7 @@ import { generateApi } from './generators/api'
 export const Print = new Command('🖨️ Printer | By Chris Cates')
 
 Print
-  .version('1.4.1')
+  .version('1.4.2')
   .description('🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.')
 
 Print

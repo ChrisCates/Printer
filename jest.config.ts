@@ -9,6 +9,8 @@ export default {
     'docs',
     'dist',
     'example',
+    'home',
+    'temporary',
     'test/temporary'
   ],
 
