@@ -1,0 +1,3 @@
+export * from './{{prefix}}.component'
+export * from './{{prefix}}.connect'
+export * from './{{prefix}}.style'

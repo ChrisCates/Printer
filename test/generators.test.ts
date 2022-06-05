@@ -5,7 +5,6 @@ import { generateNewProject } from '../src/generators/new'
 import { generateComponent } from '../src/generators/component'
 import { generatePage } from '../src/generators/page'
 import { generateSlice } from '../src/generators/slice'
-import { generatePrisma } from '../src/generators/prisma'
 import { reindexComponents } from '../src/generators/reindex'
 import { generateApi } from '../src/generators/api'
 
@@ -80,20 +79,6 @@ test('Generator - Slice', async () => {
   expect(inspect(expectedPath)?.type).toBe('file')
 
   remove(join(process.cwd(), 'redux'))
-})
-
-test('Generator - Prisma', async () => {
-  const prismaPath = join(process.cwd(), 'prisma', 'prisma.tsx')
-  const schemaPath = join(process.cwd(), 'prisma', 'schema.prisma')
-  const envPath = join(process.cwd(), '.env')
-
-  await generatePrisma();
-
-  expect(inspect(prismaPath)?.type).toBe('file')
-  expect(inspect(schemaPath)?.type).toBe('file')
-  expect(inspect(envPath)?.type).toBe('file')
-
-  remove(join(process.cwd(), 'prisma'))
 })
 
 test('Generator - Reindex', async () => {

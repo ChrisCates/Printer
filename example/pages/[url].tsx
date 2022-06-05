@@ -1,21 +1,17 @@
 import { useRouter } from 'next/router'
 import { connect } from 'react-redux'
-  
-export interface UrlI {
 
+export interface UrlI {}
+
+export function Url({}: UrlI) {
+  const router = useRouter()
+  const { url } = router.query
+
+  return <h1>Component Url</h1>
 }
 
-export function Url({ }: UrlI) {
-    const router = useRouter()
-    const { url } = router.query  
+export const UrlState = (state) => ({})
 
-    return <h1>Welcome to Printer</h1>
-}
-
-export const UrlState = state => ({
-
-})
-
-export const UrlActions = { }
+export const UrlActions = {}
 
 export default connect(UrlState, UrlActions)(Url)

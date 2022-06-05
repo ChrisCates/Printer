@@ -1,9 +1,6 @@
 import { join } from 'path'
 import { read, write } from 'fs-jetpack'
-
 import { Log } from '../helpers/log'
-import { SliceTemplate } from '../templates/slice/slice'
-import { ReduxReducerTemplate } from '../templates/slice/redux.reducer'
 
 export async function generateSlice (name: string) {
   const slicePath = join(process.cwd(), 'redux', 'slice', `${name}.tsx`)
@@ -20,8 +17,16 @@ export async function generateSlice (name: string) {
     process.exit()
   }
 
-  write(slicePath, SliceTemplate(name))
+  write(
+    slicePath,
+    read(join(__dirname, '..', 'templates', 'slice', 'slice.template'))?.replaceAll('{{name}}', name) || ''
+  )
   Log(`    ✅  Created redux/slice/${name}.tsx`.green)
-  write(reducerPath, ReduxReducerTemplate(reducers))
+  write(
+    reducerPath,
+    read(join(__dirname, '..', 'templates', 'slice', 'reducer.template'))
+      ?.replaceAll('{{import}}', reducers.map(slice => `import { ${slice}Slice } from './slice/${slice}'`).join('\n'))
+      .replaceAll('{{reducer}}', reducers.map(slice => `  ${slice}: ${slice}Slice.reducer,`).join('\n')) || ''
+  )
   Log('    ✅  Updated redux/reducer.tsx'.green)
 }

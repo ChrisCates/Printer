@@ -5,6 +5,7 @@
         "target": "ES5",
         "module": "CommonJS",
         "lib": ["ESNext"],
+        "baseUrl": "src",
         "sourceMap": true,
         "declaration": true,
         "esModuleInterop": true,
@@ -17,6 +18,7 @@
     ],
     "include": [
         "src/**/*.ts",
+        "src/**/*.template",
         "test/**/*.ts"
     ]
   }

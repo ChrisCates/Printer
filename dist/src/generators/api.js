@@ -40,11 +40,11 @@ exports.generateApi = void 0;
 var path_1 = require("path");
 var fs_jetpack_1 = require("fs-jetpack");
 var log_1 = require("../helpers/log");
-var api_1 = require("../templates/api");
 function generateApi(path) {
+    var _a;
     return __awaiter(this, void 0, void 0, function () {
         var pathArray, fileName, name, apiTemplate, apiPath;
-        return __generator(this, function (_a) {
+        return __generator(this, function (_b) {
             pathArray = path.split('/');
             fileName = pathArray[pathArray.length - 1];
             name = fileName.replace(/[^\w\s]/gi, '');
@@ -57,9 +57,9 @@ function generateApi(path) {
             else {
                 name = name[0].toUpperCase() + name.substring(1);
             }
-            apiTemplate = (0, api_1.ApiTemplate)(name);
+            apiTemplate = (_a = (0, fs_jetpack_1.read)((0, path_1.join)(__dirname, '..', 'templates', 'api.template'))) === null || _a === void 0 ? void 0 : _a.replaceAll('{{name}}', name);
             apiPath = (0, path_1.join)(process.cwd(), 'pages', 'api', "".concat(path, ".tsx"));
-            (0, fs_jetpack_1.write)(apiPath, apiTemplate);
+            (0, fs_jetpack_1.write)(apiPath, apiTemplate || '');
             (0, log_1.Log)("    \u2705  Created pages/api/".concat(path, ".tsx").green);
             return [2 /*return*/];
         });

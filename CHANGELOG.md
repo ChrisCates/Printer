@@ -1,5 +1,15 @@
 # 🖨️ Printer | Changelog
 
+## 1.5.0
+
+- Added a `convert` workflow for converting templates to typescript literals (for documentation)
+
+- Improved documentation structure
+
+- Removed `prisma` command
+
+- Improved formatting of auto generated templates (migration to a templated system)
+
 ## 1.4.2
 
 - Updated default `_document.tsx` template

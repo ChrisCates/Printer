@@ -1,8 +1,6 @@
 import { join } from 'path'
-import { inspect, list, write } from 'fs-jetpack'
-
+import { inspect, list, read, write } from 'fs-jetpack'
 import { Log } from '../helpers/log'
-import { IndexTemplate } from '../templates/component/index'
 
 export async function reindexComponents (path: string) {
   const pathData = inspect(path)
@@ -31,10 +29,10 @@ export async function reindexComponents (path: string) {
               name = name[0].toUpperCase() + name.substring(1)
             }
 
-            const index = IndexTemplate(fileName, name)
+            const index = read(join(__dirname, '..', 'templates', 'component', 'index.template'))?.replaceAll('{{name}}', name).replaceAll('{{prefix}}', fileName)
             const indexPath = join(process.cwd(), path, 'index.tsx')
 
-            write(indexPath, index)
+            write(indexPath, index || '')
             Log(`    ✅  Created ${join(path, 'index.tsx')}`.green)
           }
         }

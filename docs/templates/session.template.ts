@@ -1,0 +1,10 @@
+export default `export const password = '{{password}}';
+
+export const Session = {
+  cookieName: 'printer',
+  password,
+  cookieOptions: {
+    secure: process.env.NODE_ENV === 'production',
+  },
+}
+`

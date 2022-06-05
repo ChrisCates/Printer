@@ -1,23 +1,7 @@
 import { join } from 'path'
-import { write } from 'fs-jetpack'
-
+import { read, write } from 'fs-jetpack'
 import { Log } from '../helpers/log'
-import { AppTemplate } from '../templates/new/_app'
-import { DocumentTemplate } from '../templates/new/_document'
-import { BabelTemplate } from '../templates/new/babel'
-import { GitIgnoreTemplate } from '../templates/new/gitignore'
-import { IndexTemplate } from '../templates/new/index'
-import { PackageTemplate } from '../templates/new/package'
-import { ReduxWrapperTemplate } from '../templates/new/redux.wrapper'
-import { ReduxReducerTemplate } from '../templates/new/redux.reducer'
-import { TSConfigTemplate } from '../templates/new/tsconfig'
-import { PrecommitTemplate } from '../templates/new/precommit'
-import { EslintrcTemplate } from '../templates/new/eslintrc'
-import { ThemeTemplate } from '../templates/new/theme'
-import { UtilSessionTemplate } from '../templates/new/util.session'
-import { ResetTemplate } from '../templates/new/reset.css'
-import { FontsTemplate } from '../templates/new/fonts.css'
-import { PrinterTemplate } from '../templates/new/printer.css'
+import { randomBytes } from 'crypto'
 
 export async function generateNewProject (path: string = '.') {
   const appPath = join(process.cwd(), path, 'pages', '_app.tsx')
@@ -27,7 +11,6 @@ export async function generateNewProject (path: string = '.') {
   const gitkeepPath = join(process.cwd(), path, '.gitkeep')
   const gitkeepPublicPath = join(process.cwd(), path, 'public', '.gitkeep')
   const indexPath = join(process.cwd(), path, 'pages', 'index.tsx')
-  const themePath = join(process.cwd(), path, 'components', 'theme.tsx')
   const utilSessionPath = join(process.cwd(), path, 'util', 'session.ts')
   const resetCssPath = join(process.cwd(), path, 'public', 'assets', 'css', 'reset.css')
   const fontsCssPath = join(process.cwd(), path, 'public', 'assets', 'css', 'fonts.css')
@@ -40,42 +23,85 @@ export async function generateNewProject (path: string = '.') {
   const precommitPath = join(process.cwd(), path, '.husky', 'pre-commit')
   const eslintrcPath = join(process.cwd(), path, '.eslintrc.js')
 
-  write(babelPath, BabelTemplate)
+  write(
+    babelPath,
+    read(join(__dirname, '..', 'templates', 'new', 'babelrc.template')) || ''
+  )
   Log('    ✅  Created .babelrc'.green)
-  write(gitignorePath, GitIgnoreTemplate)
+  write(
+    gitignorePath,
+    read(join(__dirname, '..', 'templates', 'new', 'gitignore.template')) || ''
+  )
   Log('    ✅  Created .gitignore'.green)
   write(gitkeepPath, '')
   Log('    ✅  Created .gitkeep'.green)
   write(gitkeepPublicPath, '')
   Log('    ✅  Created public/.gitkeep'.green)
-  write(appPath, AppTemplate)
+  write(
+    appPath,
+    read(join(__dirname, '..', 'templates', 'new', '_app.template')) || ''
+  )
   Log('    ✅  Created pages/_app.tsx'.green)
-  write(documentPath, DocumentTemplate)
+  write(
+    documentPath,
+    read(join(__dirname, '..', 'templates', 'new', '_document.template')) || ''
+  )
   Log('    ✅  Created pages/_document.tsx'.green)
-  write(indexPath, IndexTemplate)
+  write(
+    indexPath,
+    read(join(__dirname, '..', 'templates', 'new', 'index.template')) || ''
+  )
   Log('    ✅  Created pages/index.tsx'.green)
-  write(themePath, ThemeTemplate)
-  Log('    ✅  Created components/theme.tsx'.green)
-  write(utilSessionPath, UtilSessionTemplate)
+  write(
+    utilSessionPath,
+    read(join(__dirname, '..', 'templates', 'new', 'session.template'))?.replaceAll('{{password}}', randomBytes(32).toString('hex')) || ''
+  )
   Log('    ✅  Created util/session.ts'.green)
-  write(resetCssPath, ResetTemplate)
+  write(
+    resetCssPath,
+    read(join(__dirname, '..', 'templates', 'new', 'reset.template')) || ''
+  )
   Log('    ✅  Created public/assets/css/reset.css'.green)
-  write(fontsCssPath, FontsTemplate)
+  write(
+    fontsCssPath,
+    ''
+  )
   Log('    ✅  Created public/assets/css/fonts.css'.green)
-  write(printerCssPath, PrinterTemplate)
+  write(
+    printerCssPath,
+    read(join(__dirname, '..', 'templates', 'new', 'printer.template')) || ''
+  )
   Log('    ✅  Created public/assets/css/printer.css'.green)
-  write(packagePath, PackageTemplate)
+  write(
+    packagePath,
+    read(join(__dirname, '..', 'templates', 'new', 'package.template')) || ''
+  )
   Log('    ✅  Created package.json'.green)
-  write(wrapperPath, ReduxWrapperTemplate)
+  write(
+    wrapperPath,
+    read(join(__dirname, '..', 'templates', 'new', 'wrapper.template')) || ''
+  )
   Log('    ✅  Created redux/wrapper.tsx'.green)
-  write(reducerPath, ReduxReducerTemplate)
+  write(
+    reducerPath,
+    read(join(__dirname, '..', 'templates', 'new', 'reducer.template')) || ''
+  )
   Log('    ✅  Created redux/reducer.tsx'.green)
   write(reducersPath, '[]')
   Log('    ✅  Created redux/reducers.json'.green)
-  write(tsconfigPath, TSConfigTemplate)
+  write(
+    tsconfigPath,
+    read(join(__dirname, '..', 'templates', 'new', 'tsconfig.template')) || ''
+  )
   Log('    ✅  Created tsconfig.json'.green)
-  write(precommitPath, PrecommitTemplate)
+  write(
+    precommitPath,
+    read(join(__dirname, '..', 'templates', 'new', 'precommit.template')) || ''
+  )
   Log('    ✅  Created .husky/pre-commit'.green)
-  write(eslintrcPath, EslintrcTemplate)
+  write(
+    eslintrcPath,
+    read(join(__dirname, '..', 'templates', 'new', 'eslintrc.template')) || ''
+  )
   Log('    ✅  Created .eslintrc.js'.green)
 }

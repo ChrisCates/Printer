@@ -1,0 +1,4 @@
+export default `import styled from 'styled-components'
+
+export const {{name}}Style = styled.div\`\`
+`

@@ -5,4 +5,4 @@ export const SampleState = (state) => ({})
 
 export const SampleActions = {}
 
-export const Sample = connect(SampleState, SampleActions)(SampleComponent)
+export const Sample = connect(SampleState, SampleActions)(SampleComponent as any)

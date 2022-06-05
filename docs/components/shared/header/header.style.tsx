@@ -65,7 +65,9 @@ export const HeaderStyle = styled.div`
       .icon {
         font-size: 24px;
       }
-      span { display: none; }
+      span {
+        display: none;
+      }
     }
 
     &:hover {

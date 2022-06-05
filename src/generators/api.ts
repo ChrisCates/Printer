@@ -1,8 +1,6 @@
 import { join } from 'path'
-import { write } from 'fs-jetpack'
-
+import { read, write } from 'fs-jetpack'
 import { Log } from '../helpers/log'
-import { ApiTemplate } from '../templates/api'
 
 export async function generateApi (path: string) {
   const pathArray = path.split('/')
@@ -17,9 +15,9 @@ export async function generateApi (path: string) {
     name = name[0].toUpperCase() + name.substring(1)
   }
 
-  const apiTemplate = ApiTemplate(name)
+  const apiTemplate = read(join(__dirname, '..', 'templates', 'api.template'))?.replaceAll('{{name}}', name)
   const apiPath = join(process.cwd(), 'pages', 'api', `${path}.tsx`)
 
-  write(apiPath, apiTemplate)
+  write(apiPath, apiTemplate || '')
   Log(`    ✅  Created pages/api/${path}.tsx`.green)
 }

@@ -40,15 +40,11 @@ exports.generateComponent = void 0;
 var path_1 = require("path");
 var fs_jetpack_1 = require("fs-jetpack");
 var log_1 = require("../helpers/log");
-var component_1 = require("../templates/component/component");
-var connect_1 = require("../templates/component/connect");
-var style_1 = require("../templates/component/style");
-var test_1 = require("../templates/component/test");
-var index_1 = require("../templates/component/index");
 function generateComponent(path) {
+    var _a, _b, _c, _d, _e;
     return __awaiter(this, void 0, void 0, function () {
         var pathArray, fileName, name, component, componentPath, connect, connectPath, style, stylePath, test, testPath, index, indexPath;
-        return __generator(this, function (_a) {
+        return __generator(this, function (_f) {
             pathArray = path.split('/');
             fileName = pathArray[pathArray.length - 1];
             name = fileName.replace(/[^\w\s]/gi, '');
@@ -61,25 +57,25 @@ function generateComponent(path) {
             else {
                 name = name[0].toUpperCase() + name.substring(1);
             }
-            component = (0, component_1.ComponentTemplate)(fileName, name);
+            component = (_a = (0, fs_jetpack_1.read)((0, path_1.join)(__dirname, '..', 'templates', 'component', 'component.template'))) === null || _a === void 0 ? void 0 : _a.replaceAll('{{name}}', name).replaceAll('{{prefix}}', fileName);
             componentPath = (0, path_1.join)(process.cwd(), path, "".concat(fileName, ".component.tsx"));
-            connect = (0, connect_1.ConnectTemplate)(fileName, name);
+            connect = (_b = (0, fs_jetpack_1.read)((0, path_1.join)(__dirname, '..', 'templates', 'component', 'connect.template'))) === null || _b === void 0 ? void 0 : _b.replaceAll('{{name}}', name).replaceAll('{{prefix}}', fileName);
             connectPath = (0, path_1.join)(process.cwd(), path, "".concat(fileName, ".connect.tsx"));
-            style = (0, style_1.StyleTemplate)(fileName, name);
+            style = (_c = (0, fs_jetpack_1.read)((0, path_1.join)(__dirname, '..', 'templates', 'component', 'style.template'))) === null || _c === void 0 ? void 0 : _c.replaceAll('{{name}}', name).replaceAll('{{prefix}}', fileName);
             stylePath = (0, path_1.join)(process.cwd(), path, "".concat(fileName, ".style.tsx"));
-            test = (0, test_1.TestTemplate)(fileName, name);
+            test = (_d = (0, fs_jetpack_1.read)((0, path_1.join)(__dirname, '..', 'templates', 'component', 'test.template'))) === null || _d === void 0 ? void 0 : _d.replaceAll('{{name}}', name).replaceAll('{{prefix}}', fileName);
             testPath = (0, path_1.join)(process.cwd(), path, "".concat(fileName, ".test.tsx"));
-            index = (0, index_1.IndexTemplate)(fileName, name);
+            index = (_e = (0, fs_jetpack_1.read)((0, path_1.join)(__dirname, '..', 'templates', 'component', 'index.template'))) === null || _e === void 0 ? void 0 : _e.replaceAll('{{name}}', name).replaceAll('{{prefix}}', fileName);
             indexPath = (0, path_1.join)(process.cwd(), path, 'index.tsx');
-            (0, fs_jetpack_1.write)(componentPath, component);
+            (0, fs_jetpack_1.write)(componentPath, component || '');
             (0, log_1.Log)("    \u2705  Created ".concat(fileName, ".component.tsx").green);
-            (0, fs_jetpack_1.write)(connectPath, connect);
+            (0, fs_jetpack_1.write)(connectPath, connect || '');
             (0, log_1.Log)("    \u2705  Created ".concat(fileName, ".connect.tsx").green);
-            (0, fs_jetpack_1.write)(stylePath, style);
+            (0, fs_jetpack_1.write)(stylePath, style || '');
             (0, log_1.Log)("    \u2705  Created ".concat(fileName, ".style.tsx").green);
-            (0, fs_jetpack_1.write)(testPath, test);
+            (0, fs_jetpack_1.write)(testPath, test || '');
             (0, log_1.Log)("    \u2705  Created ".concat(fileName, ".test.tsx").green);
-            (0, fs_jetpack_1.write)(indexPath, index);
+            (0, fs_jetpack_1.write)(indexPath, index || '');
             (0, log_1.Log)('    ✅  Created index.tsx'.green);
             return [2 /*return*/];
         });

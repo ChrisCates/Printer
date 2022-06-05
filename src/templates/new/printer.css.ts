@@ -1,5 +1,0 @@
-export const PrinterTemplate = `* {
-    transition: all 0.25s cubic-bezier(0.33, 1, 0.68, 1);
-    box-sizing: border-box;
-}
-`

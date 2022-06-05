@@ -40,12 +40,11 @@ exports.generateSlice = void 0;
 var path_1 = require("path");
 var fs_jetpack_1 = require("fs-jetpack");
 var log_1 = require("../helpers/log");
-var slice_1 = require("../templates/slice/slice");
-var redux_reducer_1 = require("../templates/slice/redux.reducer");
 function generateSlice(name) {
+    var _a, _b;
     return __awaiter(this, void 0, void 0, function () {
         var slicePath, reducerPath, reducersPath, reducers;
-        return __generator(this, function (_a) {
+        return __generator(this, function (_c) {
             slicePath = (0, path_1.join)(process.cwd(), 'redux', 'slice', "".concat(name, ".tsx"));
             reducerPath = (0, path_1.join)(process.cwd(), 'redux', 'reducer.tsx');
             reducersPath = (0, path_1.join)(process.cwd(), 'redux', 'reducers.json');
@@ -59,9 +58,9 @@ function generateSlice(name) {
                 (0, log_1.Log)('    ❗  redux/reducers.json is invalid, please make sure it\'s a JSON Array'.red);
                 process.exit();
             }
-            (0, fs_jetpack_1.write)(slicePath, (0, slice_1.SliceTemplate)(name));
+            (0, fs_jetpack_1.write)(slicePath, ((_a = (0, fs_jetpack_1.read)((0, path_1.join)(__dirname, '..', 'templates', 'slice', 'slice.template'))) === null || _a === void 0 ? void 0 : _a.replaceAll('{{name}}', name)) || '');
             (0, log_1.Log)("    \u2705  Created redux/slice/".concat(name, ".tsx").green);
-            (0, fs_jetpack_1.write)(reducerPath, (0, redux_reducer_1.ReduxReducerTemplate)(reducers));
+            (0, fs_jetpack_1.write)(reducerPath, ((_b = (0, fs_jetpack_1.read)((0, path_1.join)(__dirname, '..', 'templates', 'slice', 'reducer.template'))) === null || _b === void 0 ? void 0 : _b.replaceAll('{{import}}', reducers.map(function (slice) { return "import { ".concat(slice, "Slice } from './slice/").concat(slice, "'"); }).join('\n')).replaceAll('{{reducer}}', reducers.map(function (slice) { return "  ".concat(slice, ": ").concat(slice, "Slice.reducer,"); }).join('\n'))) || '');
             (0, log_1.Log)('    ✅  Updated redux/reducer.tsx'.green);
             return [2 /*return*/];
         });

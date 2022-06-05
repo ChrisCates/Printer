@@ -40,34 +40,33 @@ exports.generatePage = void 0;
 var path_1 = require("path");
 var fs_jetpack_1 = require("fs-jetpack");
 var log_1 = require("../helpers/log");
-var page_1 = require("../templates/page");
-var page_url_1 = require("../templates/page.url");
 function generatePage(path) {
+    var _a, _b;
     return __awaiter(this, void 0, void 0, function () {
         var pathArray, fileName, urls, name, pageTemplate, pagePath;
-        return __generator(this, function (_a) {
+        return __generator(this, function (_c) {
             pathArray = path.split('/');
             fileName = pathArray[pathArray.length - 1];
             urls = [];
             name = fileName.replace(/[^\w\s]/gi, '');
-            pageTemplate = (0, page_1.PageTemplate)(name);
+            pageTemplate = '';
             if (path.match(/\[(.*?)\]/g)) {
                 urls = path.match(/\[(.*?)\]/g);
                 urls = urls.map(function (url) { return url.replace(/\[/g, '').replace(/\]/g, ''); });
                 name = name[0].toUpperCase() + name.substring(1);
-                pageTemplate = (0, page_url_1.PageUrlTemplate)(name, urls);
-            }
-            else if (fileName.indexOf('.') !== -1) {
-                name = fileName.split('.').map(function (word) { return word[0].toUpperCase() + word.substring(1); }).join('');
-                pageTemplate = (0, page_1.PageTemplate)(name);
-            }
-            else if (fileName.indexOf('-') !== -1) {
-                name = fileName.split('-').map(function (word) { return word[0].toUpperCase() + word.substring(1); }).join('');
-                pageTemplate = (0, page_1.PageTemplate)(name);
+                pageTemplate = ((_a = (0, fs_jetpack_1.read)((0, path_1.join)(__dirname, '..', 'templates', 'page.url.template'))) === null || _a === void 0 ? void 0 : _a.replaceAll('{{name}}', name).replaceAll('{{url}}', urls.join(', '))) || '';
             }
             else {
-                name = name[0].toUpperCase() + name.substring(1);
-                pageTemplate = (0, page_1.PageTemplate)(name);
+                if (fileName.indexOf('.') !== -1) {
+                    name = fileName.split('.').map(function (word) { return word[0].toUpperCase() + word.substring(1); }).join('');
+                }
+                else if (fileName.indexOf('-') !== -1) {
+                    name = fileName.split('-').map(function (word) { return word[0].toUpperCase() + word.substring(1); }).join('');
+                }
+                else {
+                    name = name[0].toUpperCase() + name.substring(1);
+                }
+                pageTemplate = ((_b = (0, fs_jetpack_1.read)((0, path_1.join)(__dirname, '..', 'templates', 'page.template'))) === null || _b === void 0 ? void 0 : _b.replaceAll('{{name}}', name)) || '';
             }
             pagePath = (0, path_1.join)(process.cwd(), 'pages', "".concat(path, ".tsx"));
             (0, fs_jetpack_1.write)(pagePath, pageTemplate);

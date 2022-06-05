@@ -72,7 +72,8 @@ export const ContentStyle = styled.div`
       width: 100%;
     }
 
-    a.header, a.link {
+    a.header,
+    a.link {
       display: flex;
       align-items: center;
       width: 100%;

@@ -1,7 +1,7 @@
 {
   "name": "@chriscates/printer",
   "description": "🖨️ Printer: A code generation tool for Next.js, Redux, Prisma Development.",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "private": false,
   "preferGlobal": true,
   "repository": "https://github.com/ChrisCates/Printer.git",
@@ -10,10 +10,12 @@
   "scripts": {
     "prepare": "husky install",
     "start": "npm run build && node dist/src/printer.js",
-    "build": "tsc && npx ts-node prepend.ts",
+    "build": "tsc && npx ts-node prepend.ts && npm run move",
+    "move": "cp -r src/templates dist/src",
     "lint": "eslint src --ext ts",
     "test": "jest",
-    "codecov": "CODECOV_TOKEN='9ad3efda-e66d-4216-a4df-c519c4d65714' npx codecov"
+    "codecov": "CODECOV_TOKEN='9ad3efda-e66d-4216-a4df-c519c4d65714' npx codecov",
+    "convert": "npm run build && node dist/src/converter.js"
   },
   "husky": {
     "hooks": {

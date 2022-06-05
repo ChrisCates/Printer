@@ -51,12 +51,12 @@ exports.reindexComponents = void 0;
 var path_1 = require("path");
 var fs_jetpack_1 = require("fs-jetpack");
 var log_1 = require("../helpers/log");
-var index_1 = require("../templates/component/index");
 function reindexComponents(path) {
+    var _a;
     return __awaiter(this, void 0, void 0, function () {
         var pathData, items, items_1, items_1_1, item, subPath, subPathData, pathArray, fileName, name, index, indexPath;
-        var e_1, _a;
-        return __generator(this, function (_b) {
+        var e_1, _b;
+        return __generator(this, function (_c) {
             pathData = (0, fs_jetpack_1.inspect)(path);
             if (pathData && pathData.type === 'dir') {
                 items = (0, fs_jetpack_1.list)(path);
@@ -83,9 +83,9 @@ function reindexComponents(path) {
                                     else {
                                         name = name[0].toUpperCase() + name.substring(1);
                                     }
-                                    index = (0, index_1.IndexTemplate)(fileName, name);
+                                    index = (_a = (0, fs_jetpack_1.read)((0, path_1.join)(__dirname, '..', 'templates', 'component', 'index.template'))) === null || _a === void 0 ? void 0 : _a.replaceAll('{{name}}', name).replaceAll('{{prefix}}', fileName);
                                     indexPath = (0, path_1.join)(process.cwd(), path, 'index.tsx');
-                                    (0, fs_jetpack_1.write)(indexPath, index);
+                                    (0, fs_jetpack_1.write)(indexPath, index || '');
                                     (0, log_1.Log)("    \u2705  Created ".concat((0, path_1.join)(path, 'index.tsx')).green);
                                 }
                             }
@@ -94,7 +94,7 @@ function reindexComponents(path) {
                     catch (e_1_1) { e_1 = { error: e_1_1 }; }
                     finally {
                         try {
-                            if (items_1_1 && !items_1_1.done && (_a = items_1.return)) _a.call(items_1);
+                            if (items_1_1 && !items_1_1.done && (_b = items_1.return)) _b.call(items_1);
                         }
                         finally { if (e_1) throw e_1.error; }
                     }

@@ -7,8 +7,6 @@ import Structure from '../static/structure'
 import Apis from '../static/apis'
 import { ContentStyle } from './content.style'
 import Slices from '../static/slices'
-import Prisma from '../static/prisma'
-import Types from '../static/types'
 import Injectables from '../static/injectables'
 import Overwrites from '../static/overwrites'
 import Themes from '../static/themes'
@@ -27,9 +25,7 @@ export function ContentComponent({ selected }: ContentI) {
       {selected === DocEnum.Pages ? <Pages /> : null}
       {selected === DocEnum.Api ? <Apis /> : null}
       {selected === DocEnum.Slices ? <Slices /> : null}
-      {selected === DocEnum.Prisma ? <Prisma /> : null}
 
-      {selected === DocEnum.Types ? <Types /> : null}
       {selected === DocEnum.Injectables ? <Injectables /> : null}
       {selected === DocEnum.Overwrites ? <Overwrites /> : null}
       {selected === DocEnum.Themes ? <Themes /> : null}
