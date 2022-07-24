@@ -1,5 +1,7 @@
 # 🖨️ Printer
 
+**Deprecation Notice**: project has been deprecated and has been moved [Printer Framework](https://github.com/PrinterFramework).
+
 ## A code generation tool for Next.js, Redux, Prisma Development
 
 ![license](https://img.shields.io/badge/license-AGPLv3-blue.svg)
